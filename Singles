@@ -1,0 +1,101 @@
+<DOCTYPE html>
+<html>
+<head>
+<title> Singles </title>
+
+<style>
+img {
+	padding-right:10px;
+	width:200px;
+	height:300px;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #cc0000;
+}
+
+li {
+	float: left;
+	font-size:120%;
+}
+
+li a {
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 20px 16px;
+	text-decoration: none;
+}
+
+li a:hover {
+	background-color: #990000;
+}
+</style>
+
+</head>
+<body style="background-color: black;color: white;font-family:bookman old style">
+
+<!-- Navigation Bar -->
+<ul>
+	<li><a href="The White Rabbit Chronicles.html">The White Rabbit Chronicles</a></li>
+	<li><a href="The Immortal Empire Series.html">The Immortal Empire</a></li>
+	<li><a href="Singles.html">Singles</a></li>
+</ul>
+<!-- End Navigation Bar -->
+
+<h1 style="font-family:Arial Narrow;text-align:center;"> Single Books </h1>
+
+<!-- Dorian Gray -->
+<a href="https://www.goodreads.com/book/show/5297.The_Picture_of_Dorian_Gray?ac=1&from_search=true">
+	<img style="float: left;" src="D:\Website\Book Website\Singles\The Picture of Dorian Gray.jpg"> </a>
+
+<h2 style="font-family:Bodoni MT Black;">The Picture of Dorian Gray</h2>
+
+<p>Written in his distinctively dazzling manner, Oscar Wilde’s story of a fashionable young man who sells his soul for eternal youth and beauty is the author’s most 
+popular work. The tale of Dorian Gray’s moral disintegration caused a scandal when it ?rst appeared in 1890, but though Wilde was attacked for the novel’s corrupting 
+in?uence, he responded that there is, in fact, “a terrible moral in Dorian Gray.” Just a few years later, the book and the aesthetic/moral dilemma it presented became 
+issues in the trials occasioned by Wilde’s homosexual liaisons, which resulted in his imprisonment. Of Dorian Gray’s relationship to autobiography, Wilde noted in a 
+letter, “Basil Hallward is what I think I am: Lord Henry what the world thinks me: Dorian what I would like to be—in other ages, perhaps.”</p>
+
+<!-- END Dorian Gray -->
+ 
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<hr />
+<br></br>
+<br></br>
+
+
+<!-- Nobody -->
+<a href="https://www.goodreads.com/book/show/13628172-nobody?ac=1&from_search=true#">
+	<img style="float: left;" src="D:\Website\Book Website\Singles\Nobody.jpg"></a>
+
+<h2 style="font-family:Bell MT;">Nobody</h2>
+
+<p>There are people in this world who are Nobody. No one sees them. No one notices them. They live their lives under the radar, forgotten as soon as you turn away.</p>
+
+<p>That’s why they make the perfect assassins.</p>
+
+<p>The Institute finds these people when they’re young and takes them away for training. But an untrained Nobody is a threat to their organization. And threats must 
+be eliminated.</p>
+
+<p>Sixteen-year-old Claire has been invisible her whole life, missed by the Institute’s monitoring. But now they’ve ID’ed her and send seventeen-year-old Nix to 
+remove her. Yet the moment he lays eyes on her, he can’t make the hit. It’s as if Claire and Nix are the only people in the world for each other. And they are—because 
+no one else ever notices them.</p>
+
+<!-- END Nobody -->
+ 
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+
+</body>
+
+</html>
