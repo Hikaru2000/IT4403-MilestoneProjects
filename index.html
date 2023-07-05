@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="icon" type="image/png" href="favicon.png"/>
+    <link rel="stylesheet" href="/src/style.css"/>
+
+    <title>IT 4403 Individual Project</title>
+  </head>
+  <body>
+
+    <!-- Navigation Bar -->
+    <div class = "sidenav"> 
+        <a href="index.html"> Home </a>
+        <!-- Milestone 1 Dropdown Button -->
+        <button class="dropdown-btn">
+          Milestone 1 
+          <i class="fa fa-caret-down"></i>
+        </button>
+          <!-- Dropdown Container -->
+          <div class="dropdown-container">
+            <a href="Single_Book.html">Single Book</a>
+            <a href="Search_Page.html">Search Page</a>
+          </div>
+        <!-- Milestone 2 Dropdown Button -->
+        <button class="dropdown-btn">
+          Milestone 2
+          <i class="fa fa-caret-down"></i>
+        </button>
+          <!-- Dropdown Container -->
+          <div class="dropdown-container">
+            <a href="Book_Search.html">Book Search</a>
+            <a href="Bookshelf.html">Bookshelf</a>
+          </div>
+        <!-- Unfinished Pages -->
+        <a href="Milestone3.html">Milestone 3</a>
+        <a href="Milestone4.html">Milestone 4</a>
+    </div>
+    <!-- End Navigation Bar -->
+
+    <!-- Page Content -->
+    <div class="content">
+
+      <!--Website Header-->
+      <h1 style="text-align:center;"> IT 4403 Individual Project </h1>
+
+      <!--Course Information-->
+      <h2>Course Information</h2>
+      <p>Name: Gabrielle Hooper</p>
+      <p>Course: IT 4403 - Advanced Web and Mobile Application</p>
+      <p>Section / Semester: W-01 / Summer 2023</p>
+      <p>Course Instructor: Dr. Zhigang Li</p>
+      <p>Department of Information Technology Link: <a href="http://ccse.kennesaw.edu/it"> Department of Information Technology</a></p>
+
+      <!--Table of Contents - Showing other Milestone Pages-->
+      <h2> Table of Contents </h2>
+      <p><a href="%PUBLIC_URL%/Milestone1.html">Milestone 1</a></p>
+      <p><a href="%PUBLIC_URL%/Milestone2.html">Milestone 2</a></p>
+      <p><a href="%PUBLIC_URL%/Milestone3.html">Milestone 3</a></p>
+      <p><a href="%PUBLIC_URL%/Milestone4.html">Milestone 4</a></p>
+
+    </div>
+    <!-- End of Content -->
+
+    <!--Footer-->
+    <footer style="position: fixed;">
+      <p>This is a project for IT 4403 @ Kennesaw State University created by Gabrielle Hooper</p>
+    </footer>
+
+    <!-- Navigation Dropdown Script -->
+    <script>    
+      var dropdown = document.getElementsByClassName("dropdown-btn");
+      var i;
+              
+      for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var dropdownContent = this.nextElementSibling;
+          if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+          } else {
+            dropdownContent.style.display = "block";
+          }
+        });
+      }
+    </script>
+    <!-- End Navigation Dropdown Script -->
+
+
+
+  </body>
+</html>

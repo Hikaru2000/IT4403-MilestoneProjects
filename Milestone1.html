@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="theme-color" content="#000000"/>
+        <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+        <link rel="icon" type="image/png" href="favicon.png"/>
+        <link rel="stylesheet" href="/src/style.css">
+  
+        <title>Milestone 1</title>
+
+        <!--
+        <style>
+            .sidenav {
+                height: 100%; /* Full Height */
+                width: 200px; /* 200px Width */
+                list-style-type: none; /* No bullets */
+                margin: 0;
+                padding: 0;
+                top: 0; /* Against top of page */
+                left: 0; /* Against far left of page */
+                padding-top: 20px; /* Extra space between words on top */
+                z-index: 1;
+                position: fixed; /* Bar does not move with page */
+                overflow: auto;
+                background-color: #000000;
+
+            }
+
+            .sidenav a, .dropdown-btn {
+                display: block;
+                padding: 6px 8px 6px 16px;
+                text-decoration: none;
+                background: none;
+                color: white;
+                font-size: 20px;
+                display: block;
+                border: none;
+                width: 100%;
+                text-align: left;
+                cursor: pointer;
+                outline: none;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+            }
+
+            /* Link color on hover */
+            .sidenav a:hover, .dropdown-btn:hover {
+                background-color: #ffc629;
+                color: black;
+            }
+
+            /* Button color while active */
+            .active {
+                background-color: #ffc629;
+                color: black;
+            }
+
+            /* Style the dropdown container */
+            .dropdown-container {
+                display: none;
+                background-color:#000000;
+                padding-right: 8px;
+            }
+
+            /* Style the Caret */
+            .fa-caret-down {
+                float: right;
+                padding-right: 8px;
+            }
+
+            /* Some media queries for responsiveness */
+            @media screen and (max-height: 450px) {
+                .sidenav {padding-top: 15px;}
+                .sidenav a {font-size: 18px;}
+            }
+
+            .content {
+                margin-left: 200px;
+                padding-left: 30px;
+            }
+
+            body {
+                font-family: Georgia, 'Times New Roman', Times, serif;
+            }
+
+            /*Creating container for content*/
+            .container {
+                margin-left: 200px;
+                padding-left: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+            }
+
+            .box {
+            text-align: left;
+            padding: 20px;
+            }
+
+            body {
+                font-family: Georgia, 'Times New Roman', Times, serif;
+            }
+
+            /* Add style to the footer*/
+            footer {
+                background-color: black;
+                color: white;
+                padding: 10px;
+                text-align: center;
+                margin-left: 200px;
+                position: absolute;
+                left: 0;
+                bottom: 0;     
+                width: 100%;
+                height: 60px;
+            }
+
+        </style>
+        -->
+    </head>
+
+    <body>
+
+        <!-- Navigation Bar -->
+        <div class = "sidenav"> 
+            <a href="index.html"> Home </a>
+            <!-- Milestone 1 Dropdown Button -->
+            <button class="dropdown-btn">
+            Milestone 1 
+            <i class="fa fa-caret-down"></i>
+            </button>
+            <!-- Dropdown Container -->
+            <div class="dropdown-container">
+                <a href="Single_Book.html">Single Book</a>
+                <a href="Search_Page.html">Search Page</a>
+            </div>
+            <!-- Milestone 2 Dropdown Button -->
+            <button class="dropdown-btn">
+            Milestone 2
+            <i class="fa fa-caret-down"></i>
+            </button>
+            <!-- Dropdown Container -->
+            <div class="dropdown-container">
+                <a href="Book_Search.html">Book Search</a>
+                <a href="Bookshelf.html">Bookshelf</a>
+            </div>
+            <!-- Unfinished Pages -->
+            <a href="Milestone3.html">Milestone 3</a>
+            <a href="Milestone4.html">Milestone 4</a>
+        </div>
+        <!-- End Navigation Bar -->
+
+        <!-- Content -->
+        <div class = "content">
+            <h1 style="text-align:center"> Milestone 1 </h1>
+        </div>
+        <!-- End Content -->
+
+        <!-- Footer -->
+        <footer>
+            <p>This is a project for IT 4403 @ Kennesaw State University created by Gabrielle Hooper</p>
+        </footer>
+
+
+        <!-- Dropdown Script -->
+        <script>    
+            var dropdown = document.getElementsByClassName("dropdown-btn");
+            var i;
+                    
+            for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+                } else {
+                dropdownContent.style.display = "block";
+                }
+            });
+            }
+        </script>
+        <!-- End Dropdown Script -->
+        
+    </body>
+</html>

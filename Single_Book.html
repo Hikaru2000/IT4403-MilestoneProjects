@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+         <!--importing jquery library-->
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script> 
+
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="theme-color" content="#000000"/>
+        <link rel="icon" type="image/png" href="favicon.png"/>
+        <link rel="stylesheet" href="/src/style.css"/>
+
+        <!-- Processing provided book data -->
+        <script>
+            $(document).ready(function() {
+              var bookData = {
+                "kind": "books#volume",
+                "id": "Wfan6L9RGgYC",
+                "etag": "+wL+tteVAY0",
+                "selfLink": "https://www.googleapis.com/books/v1/volumes/Wfan6L9RGgYC",
+                "volumeInfo": {
+                    "title": "The Modern Web",
+                    "subtitle": "Multi-device Web Development with HTML5, CSS3, and JavaScript",
+                    "authors": [
+                    "Peter Gasston"
+                    ],
+                    "publisher": "No Starch Press",
+                    "publishedDate": "2013",
+                    "description": "\u003cp\u003e\u003cb\u003eA Guide to Modern Web Development\u003c/b\u003e\u003cbr\u003e\u003c/p\u003e\u003cp\u003eToday's web technologies are evolving at near-light speed, bringing the promise of a seamless Internet ever closer to reality. When users can browse the Web on a three-inch phone screen as easily as on a fifty-inch HDTV, what's a developer to do?\u003c/p\u003e\u003cp\u003ePeter Gasston's \u003ci\u003eThe Modern Web\u003c/i\u003e will guide you through the latest and most important tools of device-agnostic web development, including HTML5, CSS3, and JavaScript. His plain-English explanations and practical examples emphasize the techniques, principles, and practices that you'll need to easily transcend individual browser quirks and stay relevant as these technologies are updated.\u003c/p\u003e\u003cp\u003eLearn how to:\u003c/p\u003e\u003cp\u003e* Plan your content so that it displays fluidly across multiple devices\u003cbr\u003e* Design websites to interact with devices using the most up-to-date APIs, including Geolocation, Orientation, and Web Storage\u003cbr\u003e* Incorporate cross-platform audio and video without using troublesome plug-ins\u003cbr\u003e* Make images and graphics scalable on high-resolution devices with SVGUse powerful HTML5 elements to design better forms\u003c/p\u003e\u003cp\u003eTurn outdated websites into flexible, user-friendly ones that take full advantage of the unique capabilities of any device or browser. With the help of \u003ci\u003eThe Modern Web\u003c/i\u003e, you'll be ready to navigate the front lines of device-independent development.\u003c/p\u003e",
+                    "industryIdentifiers": [
+                    {
+                        "type": "ISBN_10",
+                        "identifier": "1593274874"
+                    },
+                    {
+                        "type": "ISBN_13",
+                        "identifier": "9781593274870"
+                    }
+                    ],
+                    "readingModes": {
+                    "text": true,
+                    "image": true
+                    },
+                    "pageCount": 264,
+                    "printedPageCount": 266,
+                    "dimensions": {
+                    "height": "24.00 cm",
+                    "width": "17.80 cm",
+                    "thickness": "1.50 cm"
+                    },
+                    "printType": "BOOK",
+                    "categories": [
+                    "Computers / Web / Design",
+                    "Computers / Software Development & Engineering / General",
+                    "Computers / Programming Languages / JavaScript",
+                    "Computers / Programming Languages / HTML",
+                    "Computers / Web / Web Programming"
+                    ],
+                    "averageRating": 4.5,
+                    "ratingsCount": 3,
+                    "maturityRating": "NOT_MATURE",
+                    "allowAnonLogging": true,
+                    "contentVersion": "1.3.3.0.preview.3",
+                    "panelizationSummary": {
+                    "containsEpubBubbles": false,
+                    "containsImageBubbles": false
+                    },
+                    "imageLinks": {
+                    "smallThumbnail": "http://books.google.com/books/content?id=Wfan6L9RGgYC&printsec=frontcover&img=1&zoom=5&edge=curl&imgtk=AFLRE73-zDLZMjxGFhDBwxaIBWpVmZk0CXkSadYLFywRmyT4KQqzeHnpABqeeOAyaEn1DsEAP_xnRGIssbcE8xZHrkdd4QL4n5fbF1_2-DDdV4gWGkaQtWqql7FV0OKO9Fxb4CX4j2Sz&source=gbs_api",
+                    "thumbnail": "http://books.google.com/books/content?id=Wfan6L9RGgYC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE71UbSu5YA91pOokbIiMeS_LplRDxFsxe88LeHs0SRo7zYgHXSZJUPwgd5JdzxjcBC7l3XS5VLv3sFKkmxocu9DJ8ZXGEEcn3BHyF9C9uZ_fT-QYKLNTNJdmkNVsE8YRXcvbk79z&source=gbs_api",
+                    "small": "http://books.google.com/books/content?id=Wfan6L9RGgYC&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE72edezG69BcXYEI1thn9PqxHzifJJSxfe6ACXog-9QoD-EiUkJGkE0O_wOJoa2QK_6a0Dh5XUoGEO0W0C4lMzwnbL5aEesM7EULqCeNBhRqgiCbIYf3J12fDHmbP0HT6EaSNERZ&source=gbs_api",
+                    "medium": "http://books.google.com/books/content?id=Wfan6L9RGgYC&printsec=frontcover&img=1&zoom=3&edge=curl&imgtk=AFLRE713vUWeTEA_Xx8_sRMmgynvxfsu4cR77V5Vv6hrb1fMxYwvW0qGVYTvoaxGO6dkD2u79sp__LDaqThTVr7oB2gcis4jz8dXwvg5G78JUjl6JqNxX7sJ4KZSyGyM73oV0cBHBpQa&source=gbs_api",
+                    "large": "http://books.google.com/books/content?id=Wfan6L9RGgYC&printsec=frontcover&img=1&zoom=4&edge=curl&imgtk=AFLRE73oDomqYdhhcd1e2kz0ujvoyxR4AOo92F5KZcnwEzlSqCDelhq9xZvpO7xNjZjwzbbeMTRjEDI7n5Fc3xOtJgCadmPAv5DtwS3eRMq61ThuHUv-dRWQEZylriwxh5ERMaIDnwSw&source=gbs_api",
+                    "extraLarge": "http://books.google.com/books/content?id=Wfan6L9RGgYC&printsec=frontcover&img=1&zoom=6&edge=curl&imgtk=AFLRE72_O-jCAyzrECqWUlkRlFlKOyfwKYBd-EW4yNXkVP481KjXKSuEsU3wYL-kbBJHcIO9AE55-vO766OoizP4v4ZwLCeu6AwsNts001Xqpu92G71JA78UaMy2E7z30F2mHiMp4GRt&source=gbs_api"
+                    },
+                    "language": "en",
+                    "previewLink": "http://books.google.com/books?id=Wfan6L9RGgYC&hl=&source=gbs_api",
+                    "infoLink": "https://play.google.com/store/books/details?id=Wfan6L9RGgYC&source=gbs_api",
+                    "canonicalVolumeLink": "https://play.google.com/store/books/details?id=Wfan6L9RGgYC"
+                },
+                "layerInfo": {
+                    "layers": [
+                    {
+                        "layerId": "geo",
+                        "volumeAnnotationsVersion": "8"
+                    }
+                    ]
+                },
+                "saleInfo": {
+                    "country": "US",
+                    "saleability": "NOT_FOR_SALE",
+                    "isEbook": false
+                },
+                "accessInfo": {
+                    "country": "US",
+                    "viewability": "PARTIAL",
+                    "embeddable": true,
+                    "publicDomain": false,
+                    "textToSpeechPermission": "ALLOWED",
+                    "epub": {
+                    "isAvailable": true
+                    },
+                    "pdf": {
+                    "isAvailable": true
+                    },
+                    "webReaderLink": "http://play.google.com/books/reader?id=Wfan6L9RGgYC&hl=&source=gbs_api",
+                    "accessViewStatus": "SAMPLE",
+                    "quoteSharingAllowed": false
+                }
+            };
+        
+              // Using JSON data to create HTML elements
+              $('#title').text(bookData.volumeInfo.title);
+              $('#subtitle').text(bookData.volumeInfo.subtitle);
+              $('#thumbnail').attr('src', bookData.volumeInfo.imageLinks.thumbnail); //book image
+              $('#authors').text("Author: " + bookData.volumeInfo.authors.join(', '));
+              $('#publisher_date_count').text("Publisher: " + bookData.volumeInfo.publisher + ", " + bookData.volumeInfo.publishedDate + " - " + bookData.volumeInfo.pageCount + " pages");
+              $('#description').html(bookData.volumeInfo.description);
+              $('#dimensions').text("Book Dimensions: " + bookData.volumeInfo.dimensions.height + " x " + bookData.volumeInfo.dimensions.width + " x " + bookData.volumeInfo.dimensions.thickness);
+              $('#categories').html(bookData.volumeInfo.categories.join('<br>'));
+              $('#average-rating').text("Average rating: " + bookData.volumeInfo.averageRating);
+              $('#ratings-count').text(bookData.volumeInfo.ratingsCount + " Reviews");
+              $('#maturity-rating').text("Maturity Rating: " + bookData.volumeInfo.maturityRating);
+              $('#country').text("Country: " + bookData.saleInfo.country);
+              $('#language').text("Language: " + bookData.volumeInfo.language);
+              $('#preview-link').attr('href', bookData.volumeInfo.previewLink);
+              $('#info-link').attr('href', bookData.volumeInfo.infoLink);
+              $('#web-reader-link').attr('href', bookData.accessInfo.webReaderLink);      
+              $('#saleability').text(bookData.saleInfo.saleability);
+              
+            });
+          </script>
+
+        <!--  
+        <style>
+            .sidenav {
+                height: 100%; /* Full Height */
+                width: 200px; /* 200px Width */
+                list-style-type: none; /* No bullets */
+                margin: 0;
+                padding: 0;
+                top: 0; /* Against top of page */
+                left: 0; /* Against far left of page */
+                padding-top: 20px; /* Extra space between words on top */
+                z-index: 1;
+                position: fixed; /* Bar does not move with page */
+                overflow: auto;
+                background-color: #000000;
+
+            }
+
+            .sidenav a, .dropdown-btn {
+                display: block;
+                padding: 6px 8px 6px 16px;
+                text-decoration: none;
+                background: none;
+                color: white;
+                font-size: 20px;
+                display: block;
+                border: none;
+                width: 100%;
+                text-align: left;
+                cursor: pointer;
+                outline: none;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+            }
+
+            /* Link color on hover */
+            .sidenav a:hover, .dropdown-btn:hover {
+                background-color: #ffc629;
+                color: black;
+            }
+
+            /* Button color while active */
+            .active {
+                background-color: #ffc629;
+                color: black;
+            }
+
+            /* Style the dropdown container */
+            .dropdown-container {
+                display: none;
+                background-color:#000000;
+                padding-right: 8px;
+            }
+
+            /* Style the Caret */
+            .fa-caret-down {
+                float: right;
+                padding-right: 8px;
+            }
+
+            /* Some media queries for responsiveness */
+            @media screen and (max-height: 450px) {
+                .sidenav {padding-top: 15px;}
+                .sidenav a {font-size: 18px;}
+            }
+
+            .content {
+                margin-left: 200px;
+                padding-left: 30px;
+            }
+
+            /*Creating container for content*/
+            .container {
+                margin-left: 200px;
+                padding-left: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+            }
+
+            .box {
+            text-align: left;
+            padding: 20px;
+            }
+
+            body {
+                font-family: Georgia, 'Times New Roman', Times, serif;
+            }
+
+            footer {
+                background-color: black;
+                color: white;
+                padding: 10px;
+                text-align: center;
+                margin-left: 200px;
+                left: 0;
+                bottom: 0;     
+                width: 100%;
+                height: 60px;
+            }
+
+
+        </style>
+        -->
+        
+        <title> Single Book </title>
+    </head>
+    <body>
+
+        <!-- Navigation Bar -->
+        <div class = "sidenav"> 
+            <a href="index.html"> Home </a>
+            <!-- Milestone 1 Dropdown Button -->
+            <button class="dropdown-btn">
+            Milestone 1 
+            <i class="fa fa-caret-down"></i>
+            </button>
+            <!-- Dropdown Container -->
+            <div class="dropdown-container">
+                <a href="Single_Book.html">Single Book</a>
+                <a href="Search_Page.html">Search Page</a>
+            </div>
+            <!-- Milestone 2 Dropdown Button -->
+            <button class="dropdown-btn">
+            Milestone 2
+            <i class="fa fa-caret-down"></i>
+            </button>
+            <!-- Dropdown Container -->
+            <div class="dropdown-container">
+                <a href="Book_Search.html">Book Search</a>
+                <a href="Bookshelf.html">Bookshelf</a>
+            </div>
+            <!-- Unfinished Pages -->
+            <a href="Milestone3.html">Milestone 3</a>
+            <a href="Milestone4.html">Milestone 4</a>
+        </div>
+        <!-- End Navigation Bar -->
+
+
+        <!--Outside container-->
+        <div class="container"> 
+            <!--Interior Box-->
+            <div class="box">
+                <!-- Printing Book Information-->
+                <h1 id="title"></h1>
+                <h2 id="subtitle"></h2>
+                <img id="thumbnail" src="" alt="Book Thumbnail">
+                <p id="authors"></p>
+                <p id="publisher_date_count"></p>
+                <p id="description"></p>
+                <p id="dimensions"></p>
+                <p id="categories"></p>
+                <p id="average-rating"></p>
+                <p id="ratings-count"></p>
+                <p id="maturity-rating"></p>
+                <p id="country"></p>
+                <p id="language"></p>
+                <a id="preview-link" href="#" target="_blank">Preview</a>
+                <a id="info-link" href="#" target="_blank">More Info</a>
+                <a id="web-reader-link" href="#" target="_blank">Web Reader</a>
+                <p id="saleability"></p>
+            </div>
+
+        </div>
+
+        <!--Footer-->
+        <footer>
+            <p>This is a project for IT 4403 @ Kennesaw State University created by Gabrielle Hooper</p>
+        </footer>
+
+        <!-- Dropdown Script -->
+        <script>    
+            var dropdown = document.getElementsByClassName("dropdown-btn");
+            var i;
+            
+            for (i = 0; i < dropdown.length; i++) {
+                dropdown[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var dropdownContent = this.nextElementSibling;
+                    if (dropdownContent.style.display === "block") {
+                        dropdownContent.style.display = "none";
+                    } else {
+                        dropdownContent.style.display = "block";
+                    }
+                });
+            }
+        </script>
+        <!-- End Dropdown Script -->
+
+    </body>
+
+</html>

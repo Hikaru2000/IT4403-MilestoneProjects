@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--importing jquery library-->
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script> 
+
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="theme-color" content="#000000"/>
+        <link rel="icon" type="image/png" href="favicon.png"/>
+        <link rel="stylesheet" href="/src/style.css"/>
+
+        <title> Search Page </title>
+
+        <!--
+        <style>
+            .sidenav {
+                height: 100%; /* Full Height */
+                width: 200px; /* 200px Width */
+                list-style-type: none; /* No bullets */
+                margin: 0;
+                padding: 0;
+                top: 0; /* Against top of page */
+                left: 0; /* Against far left of page */
+                padding-top: 20px; /* Extra space between words on top */
+                z-index: 1;
+                position: fixed; /* Bar does not move with page */
+                overflow: auto;
+                background-color: #000000;
+    
+            }
+    
+            .sidenav a, .dropdown-btn {
+                display: block;
+                padding: 6px 8px 6px 16px;
+                text-decoration: none;
+                background: none;
+                color: white;
+                font-size: 20px;
+                display: block;
+                border: none;
+                width: 100%;
+                text-align: left;
+                cursor: pointer;
+                outline: none;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+            }
+    
+            /* Link color on hover */
+            .sidenav a:hover, .dropdown-btn:hover {
+                background-color: #ffc629;
+                color: black;
+            }
+    
+            /* Button color while active */
+            .active {
+                background-color: #ffc629;
+                color: black;
+            }
+    
+            /* Style the dropdown container */
+            .dropdown-container {
+                display: none;
+                background-color:#000000;
+                padding-right: 8px;
+            }
+    
+            /* Style the Caret */
+            .fa-caret-down {
+                float: right;
+                padding-right: 8px;
+            }
+    
+            /* Some media queries for responsiveness */
+            @media screen and (max-height: 450px) {
+                .sidenav {padding-top: 15px;}
+                .sidenav a {font-size: 18px;}
+            }
+    
+            .content {
+                margin-left: 200px;
+                padding-left: 30px;
+            }
+    
+            body {
+                font-family: Georgia, 'Times New Roman', Times, serif;
+            }
+
+                    /*Creating container for content*/
+            .container {
+                margin-left: 200px;
+                padding-left: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+            }
+
+            .box {
+            text-align: left;
+            padding: 20px;
+            }
+
+            footer {
+                background-color: black;
+                color: white;
+                padding: 10px;
+                text-align: center;
+                margin-left: 200px;
+                left: 0;
+                bottom: 0;     
+                width: 100%;
+                height: 60px;
+            }
+        
+    
+        </style>
+        -->
+
+
+    </head>
+
+    <body>
+
+        <!-- Navigation Bar -->
+        <div class = "sidenav"> 
+            <a href="index.html"> Home </a>
+            <!-- Milestone 1 Dropdown Button -->
+            <button class="dropdown-btn">
+            Milestone 1 
+            <i class="fa fa-caret-down"></i>
+            </button>
+            <!-- Dropdown Container -->
+            <div class="dropdown-container">
+                <a href="Single_Book.html">Single Book</a>
+                <a href="Search_Page.html">Search Page</a>
+            </div>
+            <!-- Milestone 2 Dropdown Button -->
+            <button class="dropdown-btn">
+            Milestone 2
+            <i class="fa fa-caret-down"></i>
+            </button>
+            <!-- Dropdown Container -->
+            <div class="dropdown-container">
+                <a href="Book_Search.html">Book Search</a>
+                <a href="Bookshelf.html">Bookshelf</a>
+            </div>
+            <!-- Unfinished Pages -->
+            <a href="Milestone3.html">Milestone 3</a>
+            <a href="Milestone4.html">Milestone 4</a>
+        </div>
+        <!-- End Navigation Bar -->
+
+        <!--using div tags to organize content-->
+        <div class="container"> 
+            <div class="box">
+            <h1 style ="text-align: center">Book List</h1>
+            <ul id="bookList"></ul>
+            <script>
+                //pasting json file code
+                $(document).ready(function() {
+                var booksData = {
+                    "kind": "books#volumes",
+                    "totalItems": 2376,
+                    "items": [
+                        {
+                        "kind": "books#volume",
+                        "id": "Wfan6L9RGgYC",
+                        "etag": "KMIHJrOlP6U",
+                        "selfLink": "https://www.googleapis.com/books/v1/volumes/Wfan6L9RGgYC",
+                        "volumeInfo": {
+                            "title": "The Modern Web",
+                            "subtitle": "Multi-device Web Development with HTML5, CSS3, and JavaScript",
+                            "authors": [
+                            "Peter Gasston"
+                            ],
+                            "publisher": "No Starch Press",
+                            "publishedDate": "2013",
+                            "description": "Provides information on Web development for multiple devices, covering such topics as structure and semantics, device APIs, multimedia, and Web apps.",
+                            "industryIdentifiers": [
+                            {
+                                "type": "ISBN_13",
+                                "identifier": "9781593274870"
+                            },
+                            {
+                                "type": "ISBN_10",
+                                "identifier": "1593274874"
+                            }
+                            ],
+                            "readingModes": {
+                            "text": true,
+                            "image": true
+                            },
+                            "pageCount": 266,
+                            "printType": "BOOK",
+                            "categories": [
+                            "Computers"
+                            ],
+                            "averageRating": 4.5,
+                            "ratingsCount": 3,
+                            "maturityRating": "NOT_MATURE",
+                            "allowAnonLogging": true,
+                            "contentVersion": "1.3.3.0.preview.3",
+                            "panelizationSummary": {
+                            "containsEpubBubbles": false,
+                            "containsImageBubbles": false
+                            },
+                            "imageLinks": {
+                            "smallThumbnail": "http://books.google.com/books/content?id=Wfan6L9RGgYC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                            "thumbnail": "http://books.google.com/books/content?id=Wfan6L9RGgYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+                            },
+                            "language": "en",
+                            "previewLink": "http://books.google.com/books?id=Wfan6L9RGgYC&printsec=frontcover&dq=modern+web&hl=&cd=1&source=gbs_api",
+                            "infoLink": "http://books.google.com/books?id=Wfan6L9RGgYC&dq=modern+web&hl=&source=gbs_api",
+                            "canonicalVolumeLink": "https://books.google.com/books/about/The_Modern_Web.html?hl=&id=Wfan6L9RGgYC"
+                        },
+                        "saleInfo": {
+                            "country": "US",
+                            "saleability": "NOT_FOR_SALE",
+                            "isEbook": false
+                        },
+                        "accessInfo": {
+                            "country": "US",
+                            "viewability": "PARTIAL",
+                            "embeddable": true,
+                            "publicDomain": false,
+                            "textToSpeechPermission": "ALLOWED",
+                            "epub": {
+                            "isAvailable": true
+                            },
+                            "pdf": {
+                            "isAvailable": true
+                            },
+                            "webReaderLink": "http://play.google.com/books/reader?id=Wfan6L9RGgYC&hl=&source=gbs_api",
+                            "accessViewStatus": "SAMPLE",
+                            "quoteSharingAllowed": false
+                        },
+                        "searchInfo": {
+                            "textSnippet": "Provides information on Web development for multiple devices, covering such topics as structure and semantics, device APIs, multimedia, and Web apps."
+                        }
+                        },
+                        {
+                        "kind": "books#volume",
+                        "id": "jUvZDQAAQBAJ",
+                        "etag": "Nvi+4GAX/vU",
+                        "selfLink": "https://www.googleapis.com/books/v1/volumes/jUvZDQAAQBAJ",
+                        "volumeInfo": {
+                            "title": "React: Building Modern Web Applications",
+                            "authors": [
+                            "Jonathan Hayward",
+                            "Artemij Fedosejev",
+                            "Narayan Prusty",
+                            "Adam Horton",
+                            "Ryan Vice",
+                            "Ethan Holmes",
+                            "Tom Bray"
+                            ],
+                            "publisher": "Packt Publishing Ltd",
+                            "publishedDate": "2016-06-10",
+                            "description": "Master the art of building dynamic, modern web applications with React About This Book Learn the hot new frontend web framework from Facebook – ReactJS, an easy way of developing the V in MVC and a better approach to software engineering in JavaScript A fast-paced guide to designing and building scalable and maintainable web apps with React.js Learn all the new ES6 features and be among the most prominent JavaScript developers who can write efficient JS programs as per the latest standards Master the art of building modern web applications using React Learn to build modern native iOS and Android applications using JavaScript and the incredible power of React Who This Book Is For This course is for web developers that want to unlock high performance dynamism in the applications that they create. If you want a comprehensive journey into one of the most important JavaScript frameworks around today, dive into this course. What You Will Learn Take control of the front end with reactive JavaScript programming Discover what ReactJS offers your development - before mastering it Create React elements with properties and children Use JSX to speed up your React development process Test your React components with the Jest test framework Learn the latest syntax of ES6 Execute ES6 in a non-supported ES6 environment Learn the principles of object-oriented programming Create a complete single-page application Use an application design plan to write smarter, more meaningful code Learn how to use animations to give extra style to your application Get to grips with the React Native environment Write your own custom native UI components Integrate native modules in Objective-C and Java that interact with JavaScript In Detail ReactJS has helped to transform the web as we know it. Designed by Facebook to help developers build rapid, responsive UI that can deal with data-intensive usage, it's an essential component in any web developer's skillset. This ReactJS course, in five connected modules, provides you with a fast, engaging and practical route into ReactJS—so you can build powerful, elegant, and modern web applications. Beginning with the Reactive Programming with JavaScript module, you will learn how to take advantage of a reactive and functional programming paradigm to rethink how you approach your JavaScript code. It's built to help you understand the concepts, relevant and applicable for any frontend developer. You'll then dive a little deeper into ReactJS. The second module gives you a rapid look through the fundamentals of ReactJS, showing you how to build a basic application and demonstrating how to implement the Flux architecture. In the third module you will get to grips with ES6—this will make you a more fluent JavaScript developer, giving you control over ReactJS. You can put your old JavaScript hacks aside and instead explore how to create ES6 custom iterators. In the final two modules you'll learn how to fully master ReactJS, exploring its wider ecosystem of tools that have helped to make it one of the most important tools in web development today. Ending with insights and guidance on React Native, the tool built for today's demand for native, intuitive user experiences and interfaces, with this course you can be confident in building dynamic and modern apps with React. Style and approach Consisting of five separate modules, journey from the fundamentals of reactive programming to the exciting possibilities of React Native. Each module builds on each other, helping you to incrementally develop your skills and knowledge.",
+                            "industryIdentifiers": [
+                            {
+                                "type": "ISBN_13",
+                                "identifier": "9781786462848"
+                            },
+                            {
+                                "type": "ISBN_10",
+                                "identifier": "1786462842"
+                            }
+                            ],
+                            "readingModes": {
+                            "text": true,
+                            "image": true
+                            },
+                            "pageCount": 910,
+                            "printType": "BOOK",
+                            "categories": [
+                            "Computers"
+                            ],
+                            "averageRating": 3,
+                            "ratingsCount": 1,
+                            "maturityRating": "NOT_MATURE",
+                            "allowAnonLogging": true,
+                            "contentVersion": "1.1.3.0.preview.3",
+                            "panelizationSummary": {
+                            "containsEpubBubbles": false,
+                            "containsImageBubbles": false
+                            },
+                            "imageLinks": {
+                            "smallThumbnail": "http://books.google.com/books/content?id=jUvZDQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                            "thumbnail": "http://books.google.com/books/content?id=jUvZDQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+                            },
+                            "language": "en",
+                            "previewLink": "http://books.google.com/books?id=jUvZDQAAQBAJ&printsec=frontcover&dq=modern+web&hl=&cd=2&source=gbs_api",
+                            "infoLink": "https://play.google.com/store/books/details?id=jUvZDQAAQBAJ&source=gbs_api",
+                            "canonicalVolumeLink": "https://play.google.com/store/books/details?id=jUvZDQAAQBAJ"
+                        },
+                        "saleInfo": {
+                            "country": "US",
+                            "saleability": "FOR_SALE",
+                            "isEbook": true,
+                            "listPrice": {
+                            "amount": 62.99,
+                            "currencyCode": "USD"
+                            },
+                            "retailPrice": {
+                            "amount": 50.39,
+                            "currencyCode": "USD"
+                            },
+                            "buyLink": "https://play.google.com/store/books/details?id=jUvZDQAAQBAJ&rdid=book-jUvZDQAAQBAJ&rdot=1&source=gbs_api",
+                            "offers": [
+                            {
+                                "finskyOfferType": 1,
+                                "listPrice": {
+                                "amountInMicros": 62990000,
+                                "currencyCode": "USD"
+                                },
+                                "retailPrice": {
+                                "amountInMicros": 50390000,
+                                "currencyCode": "USD"
+                                },
+                                "giftable": true
+                            }
+                            ]
+                        },
+                        "accessInfo": {
+                            "country": "US",
+                            "viewability": "PARTIAL",
+                            "embeddable": true,
+                            "publicDomain": false,
+                            "textToSpeechPermission": "ALLOWED",
+                            "epub": {
+                            "isAvailable": true
+                            },
+                            "pdf": {
+                            "isAvailable": true
+                            },
+                            "webReaderLink": "http://play.google.com/books/reader?id=jUvZDQAAQBAJ&hl=&source=gbs_api",
+                            "accessViewStatus": "SAMPLE",
+                            "quoteSharingAllowed": false
+                        },
+                        "searchInfo": {
+                            "textSnippet": "Master the art of building dynamic, modern web applications with React About This Book Learn the hot new frontend web framework from Facebook – ReactJS, an easy way of developing the V in MVC and a better approach to software engineering ..."
+                        }
+                        },
+                        {
+                        "kind": "books#volume",
+                        "id": "98ycCwAAQBAJ",
+                        "etag": "jGH8p+oxVWo",
+                        "selfLink": "https://www.googleapis.com/books/v1/volumes/98ycCwAAQBAJ",
+                        "volumeInfo": {
+                            "title": "Modern Web Development",
+                            "subtitle": "Understanding domains, technologies, and user experience",
+                            "authors": [
+                            "Dino Esposito"
+                            ],
+                            "publisher": "Microsoft Press",
+                            "publishedDate": "2016-02-22",
+                            "description": "Master powerful new approaches to web architecture, design, and user experience This book presents a pragmatic, problem-driven, user-focused approach to planning, designing, and building dynamic web solutions. You’ll learn how to gain maximum value from Domain-Driven Design (DDD), define optimal supporting architecture, and succeed with modern UX-first design approaches. The author guides you through choosing and implementing specific technologies and addresses key user-experience topics, including mobile-friendly and responsive design. You’ll learn how to gain more value from existing Microsoft technologies such as ASP.NET MVC and SignalR by using them alongside other technologies such as Bootstrap, AJAX, JSON, and JQuery. By using these techniques and understanding the new ASP.NET Core 1.0, you can quickly build advanced web solutions that solve today’s problems and deliver an outstanding user experience. Microsoft MVP Dino Esposito shows you how to: Plan websites and web apps to mirror real-world social and business processes Use DDD to dissect and master the complexity of business domains Use UX-Driven Design to reduce costs and give customers what they want Realistically compare server-side and client-side web paradigms Get started with the new ASP.NET Core 1.0 Simplify modern visual webpage construction with Bootstrap Master practical, efficient techniques for running ASP.NET MVC projects Consider new options for implementing persistence and working with data models Understand Responsive Web Design’s pros, cons, and tradeoffs Build truly mobile-friendly, mobile-optimized websites About This Book For experienced developers and solution architects who want to plan and develop web solutions more effectively Assumes basic familiarity with the Microsoft web development stack",
+                            "industryIdentifiers": [
+                            {
+                                "type": "ISBN_13",
+                                "identifier": "9781509300549"
+                            },
+                            {
+                                "type": "ISBN_10",
+                                "identifier": "1509300546"
+                            }
+                            ],
+                            "readingModes": {
+                            "text": true,
+                            "image": true
+                            },
+                            "pageCount": 432,
+                            "printType": "BOOK",
+                            "categories": [
+                            "Computers"
+                            ],
+                            "maturityRating": "NOT_MATURE",
+                            "allowAnonLogging": true,
+                            "contentVersion": "1.1.1.0.preview.3",
+                            "panelizationSummary": {
+                            "containsEpubBubbles": false,
+                            "containsImageBubbles": false
+                            },
+                            "imageLinks": {
+                            "smallThumbnail": "http://books.google.com/books/content?id=98ycCwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                            "thumbnail": "http://books.google.com/books/content?id=98ycCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+                            },
+                            "language": "en",
+                            "previewLink": "http://books.google.com/books?id=98ycCwAAQBAJ&printsec=frontcover&dq=modern+web&hl=&cd=3&source=gbs_api",
+                            "infoLink": "http://books.google.com/books?id=98ycCwAAQBAJ&dq=modern+web&hl=&source=gbs_api",
+                            "canonicalVolumeLink": "https://books.google.com/books/about/Modern_Web_Development.html?hl=&id=98ycCwAAQBAJ"
+                        },
+                        "saleInfo": {
+                            "country": "US",
+                            "saleability": "NOT_FOR_SALE",
+                            "isEbook": false
+                        },
+                        "accessInfo": {
+                            "country": "US",
+                            "viewability": "PARTIAL",
+                            "embeddable": true,
+                            "publicDomain": false,
+                            "textToSpeechPermission": "ALLOWED",
+                            "epub": {
+                            "isAvailable": true,
+                            "acsTokenLink": "http://books.google.com/books/download/Modern_Web_Development-sample-epub.acsm?id=98ycCwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+                            },
+                            "pdf": {
+                            "isAvailable": true,
+                            "acsTokenLink": "http://books.google.com/books/download/Modern_Web_Development-sample-pdf.acsm?id=98ycCwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+                            },
+                            "webReaderLink": "http://play.google.com/books/reader?id=98ycCwAAQBAJ&hl=&source=gbs_api",
+                            "accessViewStatus": "SAMPLE",
+                            "quoteSharingAllowed": false
+                        },
+                        "searchInfo": {
+                            "textSnippet": "Microsoft MVP Dino Esposito shows you how to: Plan websites and web apps to mirror real-world social and business processes Use DDD to dissect and master the complexity of business domains Use UX-Driven Design to reduce costs and give ..."
+                        }
+                        },
+                        {
+                        "kind": "books#volume",
+                        "id": "GBOpAwAAQBAJ",
+                        "etag": "xkB8PwBeeOk",
+                        "selfLink": "https://www.googleapis.com/books/v1/volumes/GBOpAwAAQBAJ",
+                        "volumeInfo": {
+                            "title": "Modern Web Development with IBM WebSphere",
+                            "authors": [
+                            "Kyle Brown",
+                            "Roland Barcia",
+                            "Karl Bishop",
+                            "Matthew Perrins"
+                            ],
+                            "publisher": "Pearson Education",
+                            "publishedDate": "2014",
+                            "description": "Online resources also available to purchasers.",
+                            "industryIdentifiers": [
+                            {
+                                "type": "ISBN_13",
+                                "identifier": "9780133067033"
+                            },
+                            {
+                                "type": "ISBN_10",
+                                "identifier": "0133067033"
+                            }
+                            ],
+                            "readingModes": {
+                            "text": false,
+                            "image": true
+                            },
+                            "pageCount": 377,
+                            "printType": "BOOK",
+                            "categories": [
+                            "Computers"
+                            ],
+                            "maturityRating": "NOT_MATURE",
+                            "allowAnonLogging": false,
+                            "contentVersion": "preview-1.0.0",
+                            "panelizationSummary": {
+                            "containsEpubBubbles": false,
+                            "containsImageBubbles": false
+                            },
+                            "imageLinks": {
+                            "smallThumbnail": "http://books.google.com/books/content?id=GBOpAwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                            "thumbnail": "http://books.google.com/books/content?id=GBOpAwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+                            },
+                            "language": "en",
+                            "previewLink": "http://books.google.com/books?id=GBOpAwAAQBAJ&pg=PA17&dq=modern+web&hl=&cd=4&source=gbs_api",
+                            "infoLink": "http://books.google.com/books?id=GBOpAwAAQBAJ&dq=modern+web&hl=&source=gbs_api",
+                            "canonicalVolumeLink": "https://books.google.com/books/about/Modern_Web_Development_with_IBM_WebSpher.html?hl=&id=GBOpAwAAQBAJ"
+                        },
+                        "saleInfo": {
+                            "country": "US",
+                            "saleability": "NOT_FOR_SALE",
+                            "isEbook": false
+                        },
+                        "accessInfo": {
+                            "country": "US",
+                            "viewability": "PARTIAL",
+                            "embeddable": true,
+                            "publicDomain": false,
+                            "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+                            "epub": {
+                            "isAvailable": false
+                            },
+                            "pdf": {
+                            "isAvailable": false
+                            },
+                            "webReaderLink": "http://play.google.com/books/reader?id=GBOpAwAAQBAJ&hl=&source=gbs_api",
+                            "accessViewStatus": "SAMPLE",
+                            "quoteSharingAllowed": false
+                        },
+                        "searchInfo": {
+                            "textSnippet": "Web. APIs. So far, we have primarily focused on the UI portion of your application. The \u003cb\u003eModern Web\u003c/b\u003e Application architecture also mandates a strategy and implementation for web APIs. REST is the main pattern for creating web services in&nbsp;..."
+                        }
+                        },
+                        {
+                        "kind": "books#volume",
+                        "id": "b2bdDwAAQBAJ",
+                        "etag": "jApZeur4lV4",
+                        "selfLink": "https://www.googleapis.com/books/v1/volumes/b2bdDwAAQBAJ",
+                        "volumeInfo": {
+                            "title": "JavaScript for Modern Web Development",
+                            "subtitle": "Building a Web Application Using HTML, CSS, and JavaScript",
+                            "authors": [
+                            "Alok Ranjan",
+                            "Abhilasha Sinha",
+                            "Ranjit Battewad"
+                            ],
+                            "publisher": "BPB Publications",
+                            "publishedDate": "2020-04-18",
+                            "description": "Beginner to Expert in Web development with JavaScript: From HTML to React-Redux KEY FEATURES - Acquire web development skills to build independent applications - Understand the basics of HTML, CSS, JavaScript, React and Redux - Create build beautiful applications using HTML, CSS, JavaScript, React and Redux - Learn how to debug and unit test your applications properly to build good end products - Follow best practices to write good quality code and build performant applications DESCRIPTION This book will take you on a complete journey of learning web development, starting right with the basics. The book begins with the history of web development and JavaScript, how it has evolved over these years, and how it still keeps growing with new features. Next, you will learn the basic pillars of web development - HTML, CSS, and JavaScript. You will learn about the functional, object-oriented programming and asynchronous behaviour, and how JavaScript provides for these. Empowered with the basics, you will proceed to learn the new features of JavaScript, ES2015, and the latest ES2019. Next, you will apply your learning to build a real application to see how the Web takes shape.At the end, you will also have an introductory section on ReactJS, one of the modern frameworks for UI development and also develop a simple weather application using React. You will be introduced to Redux as the state container for React applications. This book will conclude with an introductory look at additional topics which can be taken up to become a professional and in building enterprise level applications. WHAT WILL YOU LEARN By the end of the book, you will be building real web applications to put your knowledge to practice. This book introduces all the concepts to get started with web application development. To further excel in this field, you really need to practice by building a lot many applications, implementing your own ideas or imitating existing websites. Also remember to practice additional examples provided in the code bundle of the book to master this field. WHO THIS BOOK IS FOR This book can be used by people who are completely new to software development and want to get into front-end web development by starting from basics. This book can also be used by JavaScript users for a quick reference to the fundamentals of HTML, CSS, JS, and learn ReactJS with Redux, as well as the new features in JavaScript ES2019. Table of Contents 1. History of JS and how it has revolutionized web development 2. HTML: Creating Web Content 3. CSS: Making content beautiful 4. JavaScript Programming: Making application Interactive 5. Functional programming with JavaScript 6. Object-Oriented JavaScript 7. Asynchronous Programming 8. What’s new in ES2019 JavaScript 9. Building an application with JavaScript 10. Debugging JavaScript Applications 11. Unit test automation 12. Build and Deploy an Application 13. JavaScript Best Practices 14. Introduction to React 15. Building an application with React 16. State Management in React applications 17. Debugging, Testing, and Deploying React applications 18. What is next - for becoming a pro?",
+                            "industryIdentifiers": [
+                            {
+                                "type": "ISBN_13",
+                                "identifier": "9789389328721"
+                            },
+                            {
+                                "type": "ISBN_10",
+                                "identifier": "9389328721"
+                            }
+                            ],
+                            "readingModes": {
+                            "text": true,
+                            "image": true
+                            },
+                            "pageCount": 438,
+                            "printType": "BOOK",
+                            "categories": [
+                            "Computers"
+                            ],
+                            "maturityRating": "NOT_MATURE",
+                            "allowAnonLogging": true,
+                            "contentVersion": "1.1.1.0.preview.3",
+                            "panelizationSummary": {
+                            "containsEpubBubbles": false,
+                            "containsImageBubbles": false
+                            },
+                            "imageLinks": {
+                            "smallThumbnail": "http://books.google.com/books/content?id=b2bdDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                            "thumbnail": "http://books.google.com/books/content?id=b2bdDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+                            },
+                            "language": "en",
+                            "previewLink": "http://books.google.com/books?id=b2bdDwAAQBAJ&pg=PT24&dq=modern+web&hl=&cd=5&source=gbs_api",
+                            "infoLink": "https://play.google.com/store/books/details?id=b2bdDwAAQBAJ&source=gbs_api",
+                            "canonicalVolumeLink": "https://play.google.com/store/books/details?id=b2bdDwAAQBAJ"
+                        },
+                        "saleInfo": {
+                            "country": "US",
+                            "saleability": "FOR_SALE",
+                            "isEbook": true,
+                            "listPrice": {
+                            "amount": 9.95,
+                            "currencyCode": "USD"
+                            },
+                            "retailPrice": {
+                            "amount": 9.95,
+                            "currencyCode": "USD"
+                            },
+                            "buyLink": "https://play.google.com/store/books/details?id=b2bdDwAAQBAJ&rdid=book-b2bdDwAAQBAJ&rdot=1&source=gbs_api",
+                            "offers": [
+                            {
+                                "finskyOfferType": 1,
+                                "listPrice": {
+                                "amountInMicros": 9950000,
+                                "currencyCode": "USD"
+                                },
+                                "retailPrice": {
+                                "amountInMicros": 9950000,
+                                "currencyCode": "USD"
+                                },
+                                "giftable": true
+                            }
+                            ]
+                        },
+                        "accessInfo": {
+                            "country": "US",
+                            "viewability": "PARTIAL",
+                            "embeddable": true,
+                            "publicDomain": false,
+                            "textToSpeechPermission": "ALLOWED",
+                            "epub": {
+                            "isAvailable": true,
+                            "acsTokenLink": "http://books.google.com/books/download/JavaScript_for_Modern_Web_Development-sample-epub.acsm?id=b2bdDwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+                            },
+                            "pdf": {
+                            "isAvailable": true,
+                            "acsTokenLink": "http://books.google.com/books/download/JavaScript_for_Modern_Web_Development-sample-pdf.acsm?id=b2bdDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+                            },
+                            "webReaderLink": "http://play.google.com/books/reader?id=b2bdDwAAQBAJ&hl=&source=gbs_api",
+                            "accessViewStatus": "SAMPLE",
+                            "quoteSharingAllowed": false
+                        },
+                        "searchInfo": {
+                            "textSnippet": "Building a Web Application Using HTML, CSS, and JavaScript Alok Ranjan, Abhilasha Sinha, Ranjit Battewad ... because of the ease with which JavaScript facilitates \u003cb\u003emodern web\u003c/b\u003e development for both clientside as well as server-side."
+                        }
+                        },
+                        {
+                        "kind": "books#volume",
+                        "id": "GCeeEAAAQBAJ",
+                        "etag": "j6ESzatGnOk",
+                        "selfLink": "https://www.googleapis.com/books/v1/volumes/GCeeEAAAQBAJ",
+                        "volumeInfo": {
+                            "title": "D3: Modern Web Visualization",
+                            "subtitle": "Exploratory Visualizations, Interactive Charts, 2D Web Graphics, and Data-Driven Visual Representations (English Edition)",
+                            "authors": [
+                            "Victor M Garcia Sanabria"
+                            ],
+                            "publisher": "BPB Publications",
+                            "publishedDate": "2022-11-28",
+                            "description": "How to Make Web Visualizations with D3js KEY FEATURES ● Includes narrative tools to master data visualization methods, charts, templates, and D3. ● Essential strategies for creating intelligent visualizations and modern graphs beyond simple lines, bars, and pie charts. ● Provides the opportunity for readers to create the graphs that are best suited for their data. DESCRIPTION Picking the most appropriate tool is essential whenever you develop a dynamic chart online. D3.js is a clear winner here. The author of this book set out to delve deeply into the software engineering community's most widely used charting library. From data requests to scale and style, and even some experiment charts, you'll have a firm grasp on everything you need to know to create your charts. You can make static charts much more engaging by incorporating elements such as tooltips, interactions, legends, and selectors. The book explains how to make a simple chart in easy-to-understand steps. Each chapter in the book will deepen your understanding of the different components of charts and the options that D3.js provides for making them. The book dives deeply into the code and examines various charting examples for different use cases. This book will help you learn to create charts by constantly referencing all chapters. WHAT YOU WILL LEARN ● Create 2D illustrations utilizing SVG, Canvas, and HTML5. ● Try out all the different visualization and interaction methods that D3 offers. ● Explore color, contour, noise, and texture. ● Investigate D3's data-driven methods and DOM manipulation capabilities. ● Get access to the full capabilities of modern browsers for producing optimal graphical user interfaces. WHO THIS BOOK IS FOR This book has been meticulously assembled for readers who work with data visualization, such as UI designers, web developers, makers of BI dashboards, and data analysts. It will teach you how to create the most engaging infographics from messy and stacked information. TABLE OF CONTENTS 1. Getting Started 2. The SVG Tag 3. Treating Data 4. Working with Selections 5. Styling, Templates and Color Theory 6. Scales and Axes 7. Dynamic and Interactive 8. Choosing the right visualization 9. Comparison Charts 10. Distribution Charts 11. Correlation Charts 12. Composition Charts",
+                            "industryIdentifiers": [
+                            {
+                                "type": "ISBN_13",
+                                "identifier": "9789355511010"
+                            },
+                            {
+                                "type": "ISBN_10",
+                                "identifier": "9355511019"
+                            }
+                            ],
+                            "readingModes": {
+                            "text": true,
+                            "image": true
+                            },
+                            "pageCount": 427,
+                            "printType": "BOOK",
+                            "categories": [
+                            "Computers"
+                            ],
+                            "maturityRating": "NOT_MATURE",
+                            "allowAnonLogging": false,
+                            "contentVersion": "1.1.1.0.preview.3",
+                            "panelizationSummary": {
+                            "containsEpubBubbles": false,
+                            "containsImageBubbles": false
+                            },
+                            "imageLinks": {
+                            "smallThumbnail": "http://books.google.com/books/content?id=GCeeEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                            "thumbnail": "http://books.google.com/books/content?id=GCeeEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+                            },
+                            "language": "en",
+                            "previewLink": "http://books.google.com/books?id=GCeeEAAAQBAJ&pg=PA1&dq=modern+web&hl=&cd=6&source=gbs_api",
+                            "infoLink": "https://play.google.com/store/books/details?id=GCeeEAAAQBAJ&source=gbs_api",
+                            "canonicalVolumeLink": "https://play.google.com/store/books/details?id=GCeeEAAAQBAJ"
+                        },
+                        "saleInfo": {
+                            "country": "US",
+                            "saleability": "FOR_SALE",
+                            "isEbook": true,
+                            "listPrice": {
+                            "amount": 9.95,
+                            "currencyCode": "USD"
+                            },
+                            "retailPrice": {
+                            "amount": 9.95,
+                            "currencyCode": "USD"
+                            },
+                            "buyLink": "https://play.google.com/store/books/details?id=GCeeEAAAQBAJ&rdid=book-GCeeEAAAQBAJ&rdot=1&source=gbs_api",
+                            "offers": [
+                            {
+                                "finskyOfferType": 1,
+                                "listPrice": {
+                                "amountInMicros": 9950000,
+                                "currencyCode": "USD"
+                                },
+                                "retailPrice": {
+                                "amountInMicros": 9950000,
+                                "currencyCode": "USD"
+                                },
+                                "giftable": true
+                            }
+                            ]
+                        },
+                        "accessInfo": {
+                            "country": "US",
+                            "viewability": "PARTIAL",
+                            "embeddable": true,
+                            "publicDomain": false,
+                            "textToSpeechPermission": "ALLOWED",
+                            "epub": {
+                            "isAvailable": true,
+                            "acsTokenLink": "http://books.google.com/books/download/D3_Modern_Web_Visualization-sample-epub.acsm?id=GCeeEAAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+                            },
+                            "pdf": {
+                            "isAvailable": true,
+                            "acsTokenLink": "http://books.google.com/books/download/D3_Modern_Web_Visualization-sample-pdf.acsm?id=GCeeEAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+                            },
+                            "webReaderLink": "http://play.google.com/books/reader?id=GCeeEAAAQBAJ&hl=&source=gbs_api",
+                            "accessViewStatus": "SAMPLE",
+                            "quoteSharingAllowed": false
+                        },
+                        "searchInfo": {
+                            "textSnippet": "Exploratory Visualizations, Interactive Charts, 2D Web Graphics, and Data-Driven Visual Representations (English Edition) Victor M Garcia Sanabria. \u003cb\u003eModern Web\u003c/b\u003e Visualization Exploratory Visualizations , Interactive Charts , 2D Web&nbsp;..."
+                        }
+                        },
+                        {
+                        "kind": "books#volume",
+                        "id": "blkAEAAAQBAJ",
+                        "etag": "rh9Oc61vSWc",
+                        "selfLink": "https://www.googleapis.com/books/v1/volumes/blkAEAAAQBAJ",
+                        "volumeInfo": {
+                            "title": "Modern Web Testing with TestCafe",
+                            "subtitle": "Get to grips with end-to-end web testing with TestCafe and JavaScript",
+                            "authors": [
+                            "Dmytro Shpakovskyi"
+                            ],
+                            "publisher": "Packt Publishing Ltd",
+                            "publishedDate": "2020-09-30",
+                            "description": "A no-nonsense guide to getting started with TestCafe quickly by building a complete test suite while learning the core concepts of test automation with TestCafe Key FeaturesBuild a proof-of-concept project to demonstrate your familiarity with TestCafeDiscover useful tips and best practices for building production-ready and fault-tolerant testsWrite clean and maintainable tests by refactoring your codebase using PageObject patternBook Description TestCafe is an open source end-to-end testing framework that combines unmatched ease of use with advanced automation and robust built-in stability mechanisms. This book is a comprehensive, project-based introduction to TestCafe that will show you how to use the TestCafe framework and enable you to write fast and reliable tests; plus you’ll have a proof of concept ready to demonstrate the practical potential of TestCafe. You’ll begin by learning how to write end-to-end web tests using the TestCafe syntax and features of the TestCafe framework. You’ll then go from setting up the environment all the way through to writing production-ready tests. You’ll also find out how to build a sample set of tests in a step-by-step manner and use TestCafe to log in to the website, verify the elements present on different pages, create/delete entities, and run custom JavaScript code. As you advance, you’ll delve into several stages of refactoring that will take you through the showcase setup/teardown and PageObject patterns. While this test suite is relatively simple to build, it showcases some of the most prominent features of TestCafe. Finally, this TestCafe book will show you how the tests can be run on a free and simple-to-use website, without requiring you to build and deploy your own servers or backend services. By the end of this book, you’ll have learned how to write and enhance end-to-end tests with TestCafe to solve real-world problems and deliver results. What you will learnUnderstand the basic concepts of TestCafe and how it differs from classic SeleniumFind out how to set up a TestCafe test environmentRun TestCafe with command-line settingsVerify and execute TestCafe code in the browserAutomate end-to-end testing with TestCafe using expert techniquesDiscover best practices in TestCafe development and learn about the future roadmap of TestCafeWho this book is for The book is for QA professionals, test engineers, software engineers, and test automation enthusiasts looking for hands-on guidance on learning about TestCafe. This book is also great for full-stack developers who want to learn more about new tools for testing their code. The book assumes a basic understanding of JavaScript, Node.js, HTML, CSS, and some simple Bash commands.",
+                            "industryIdentifiers": [
+                            {
+                                "type": "ISBN_13",
+                                "identifier": "9781800205963"
+                            },
+                            {
+                                "type": "ISBN_10",
+                                "identifier": "1800205961"
+                            }
+                            ],
+                            "readingModes": {
+                            "text": true,
+                            "image": true
+                            },
+                            "pageCount": 168,
+                            "printType": "BOOK",
+                            "categories": [
+                            "Computers"
+                            ],
+                            "maturityRating": "NOT_MATURE",
+                            "allowAnonLogging": false,
+                            "contentVersion": "1.3.3.0.preview.3",
+                            "panelizationSummary": {
+                            "containsEpubBubbles": false,
+                            "containsImageBubbles": false
+                            },
+                            "imageLinks": {
+                            "smallThumbnail": "http://books.google.com/books/content?id=blkAEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                            "thumbnail": "http://books.google.com/books/content?id=blkAEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+                            },
+                            "language": "en",
+                            "previewLink": "http://books.google.com/books?id=blkAEAAAQBAJ&pg=PA128&dq=modern+web&hl=&cd=7&source=gbs_api",
+                            "infoLink": "https://play.google.com/store/books/details?id=blkAEAAAQBAJ&source=gbs_api",
+                            "canonicalVolumeLink": "https://play.google.com/store/books/details?id=blkAEAAAQBAJ"
+                        },
+                        "saleInfo": {
+                            "country": "US",
+                            "saleability": "FOR_SALE",
+                            "isEbook": true,
+                            "listPrice": {
+                            "amount": 22.99,
+                            "currencyCode": "USD"
+                            },
+                            "retailPrice": {
+                            "amount": 13.94,
+                            "currencyCode": "USD"
+                            },
+                            "buyLink": "https://play.google.com/store/books/details?id=blkAEAAAQBAJ&rdid=book-blkAEAAAQBAJ&rdot=1&source=gbs_api",
+                            "offers": [
+                            {
+                                "finskyOfferType": 1,
+                                "listPrice": {
+                                "amountInMicros": 22990000,
+                                "currencyCode": "USD"
+                                },
+                                "retailPrice": {
+                                "amountInMicros": 13940000,
+                                "currencyCode": "USD"
+                                },
+                                "giftable": true
+                            }
+                            ]
+                        },
+                        "accessInfo": {
+                            "country": "US",
+                            "viewability": "PARTIAL",
+                            "embeddable": true,
+                            "publicDomain": false,
+                            "textToSpeechPermission": "ALLOWED",
+                            "epub": {
+                            "isAvailable": true
+                            },
+                            "pdf": {
+                            "isAvailable": true
+                            },
+                            "webReaderLink": "http://play.google.com/books/reader?id=blkAEAAAQBAJ&hl=&source=gbs_api",
+                            "accessViewStatus": "SAMPLE",
+                            "quoteSharingAllowed": false
+                        },
+                        "searchInfo": {
+                            "textSnippet": "Get to grips with end-to-end web testing with TestCafe and JavaScript Dmytro Shpakovskyi. Note that our tests contain excessive code. For example, the #top-menu .projects CSS selector (https://github.com/PacktPublishing/\u003cb\u003eModern\u003c/b\u003e-\u003cb\u003eWeb\u003c/b\u003e-&nbsp;..."
+                        }
+                        },
+                        {
+                        "kind": "books#volume",
+                        "id": "2IfDCgAAQBAJ",
+                        "etag": "JZxW4xoANOQ",
+                        "selfLink": "https://www.googleapis.com/books/v1/volumes/2IfDCgAAQBAJ",
+                        "volumeInfo": {
+                            "title": "JavaScript Frameworks for Modern Web Dev",
+                            "authors": [
+                            "Tim Ambler",
+                            "Nicholas Cloud"
+                            ],
+                            "publisher": "Apress",
+                            "publishedDate": "2015-10-13",
+                            "description": "JavaScript Frameworks for Modern Web Dev is your guide to the wild, vast, and untamed frontier that is JavaScript development. The JavaScript tooling landscape has grown and matured drastically in the past several years. This book will serve as an introduction to both new and well established libraries, frameworks, and utilities that have gained popular traction and support from seasoned developers. It covers tools applicable to the entire development stack, both client- and server-side. While no single book can possibly cover every JavaScript library of value, JavaScript Frameworks for Modern Web Dev focuses on incredibly u seful libraries and frameworks that production software uses. You will be treated to detailed analyses and sample code for tools that manage dependencies, structure code in a modular fashion, automate repetitive build tasks, create specialized servers, structure client side applications, facilitate horizontal scaling, and interacting with disparate data stores. The libraries and frameworks covered include Bower, Grunt, Yeoman, PM2, RequireJS, Browserify, Knockout, AngularJS, Kraken, Mach, Mongoose, Knex, Bookshelf, Faye, Q, Async.js, Underscore, and Lodash. Written from first-hand experience, you will benefit from the glorious victories and innumerable failures of two experienced professionals, gain quick insight into hurdles that aren't always explicitly mentioned in API documentation or Readmes, and quickly learn how to use JavaScript frameworks and libraries like a Pro. Enrich your development skills with JavaScript Frameworks for Modern Web Dev today.",
+                            "industryIdentifiers": [
+                            {
+                                "type": "ISBN_13",
+                                "identifier": "9781484206621"
+                            },
+                            {
+                                "type": "ISBN_10",
+                                "identifier": "1484206622"
+                            }
+                            ],
+                            "readingModes": {
+                            "text": true,
+                            "image": true
+                            },
+                            "pageCount": 502,
+                            "printType": "BOOK",
+                            "categories": [
+                            "Computers"
+                            ],
+                            "maturityRating": "NOT_MATURE",
+                            "allowAnonLogging": false,
+                            "contentVersion": "0.5.4.0.preview.3",
+                            "panelizationSummary": {
+                            "containsEpubBubbles": false,
+                            "containsImageBubbles": false
+                            },
+                            "imageLinks": {
+                            "smallThumbnail": "http://books.google.com/books/content?id=2IfDCgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                            "thumbnail": "http://books.google.com/books/content?id=2IfDCgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+                            },
+                            "language": "en",
+                            "previewLink": "http://books.google.com/books?id=2IfDCgAAQBAJ&pg=PA381&dq=modern+web&hl=&cd=8&source=gbs_api",
+                            "infoLink": "http://books.google.com/books?id=2IfDCgAAQBAJ&dq=modern+web&hl=&source=gbs_api",
+                            "canonicalVolumeLink": "https://books.google.com/books/about/JavaScript_Frameworks_for_Modern_Web_Dev.html?hl=&id=2IfDCgAAQBAJ"
+                        },
+                        "saleInfo": {
+                            "country": "US",
+                            "saleability": "NOT_FOR_SALE",
+                            "isEbook": false
+                        },
+                        "accessInfo": {
+                            "country": "US",
+                            "viewability": "PARTIAL",
+                            "embeddable": true,
+                            "publicDomain": false,
+                            "textToSpeechPermission": "ALLOWED",
+                            "epub": {
+                            "isAvailable": true,
+                            "acsTokenLink": "http://books.google.com/books/download/JavaScript_Frameworks_for_Modern_Web_Dev-sample-epub.acsm?id=2IfDCgAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+                            },
+                            "pdf": {
+                            "isAvailable": true,
+                            "acsTokenLink": "http://books.google.com/books/download/JavaScript_Frameworks_for_Modern_Web_Dev-sample-pdf.acsm?id=2IfDCgAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+                            },
+                            "webReaderLink": "http://play.google.com/books/reader?id=2IfDCgAAQBAJ&hl=&source=gbs_api",
+                            "accessViewStatus": "SAMPLE",
+                            "quoteSharingAllowed": false
+                        },
+                        "searchInfo": {
+                            "textSnippet": "—Abraham Lincoln Web-based applications have grown increasingly sophisticated in recent years, thanks in large part to the widespread adoption of \u003cb\u003emodern web\u003c/b\u003e development technologies such as HTML5, WebSockets, and newly standardized&nbsp;..."
+                        }
+                        },
+                        {
+                        "kind": "books#volume",
+                        "id": "yDyJ-iH6vpwC",
+                        "etag": "aVw90ojfkXU",
+                        "selfLink": "https://www.googleapis.com/books/v1/volumes/yDyJ-iH6vpwC",
+                        "volumeInfo": {
+                            "title": "Software Engineering for Modern Web Applications: Methodologies and Technologies",
+                            "subtitle": "Methodologies and Technologies",
+                            "authors": [
+                            "Brandon, Daniel M."
+                            ],
+                            "publisher": "IGI Global",
+                            "publishedDate": "2008-06-30",
+                            "description": "\"This book presents current, effective software engineering methods for the design and development of modern Web-based applications\"--Provided by publisher.",
+                            "industryIdentifiers": [
+                            {
+                                "type": "ISBN_13",
+                                "identifier": "9781599044941"
+                            },
+                            {
+                                "type": "ISBN_10",
+                                "identifier": "1599044943"
+                            }
+                            ],
+                            "readingModes": {
+                            "text": false,
+                            "image": true
+                            },
+                            "pageCount": 402,
+                            "printType": "BOOK",
+                            "categories": [
+                            "Computers"
+                            ],
+                            "maturityRating": "NOT_MATURE",
+                            "allowAnonLogging": false,
+                            "contentVersion": "2.6.5.0.preview.1",
+                            "panelizationSummary": {
+                            "containsEpubBubbles": false,
+                            "containsImageBubbles": false
+                            },
+                            "imageLinks": {
+                            "smallThumbnail": "http://books.google.com/books/content?id=yDyJ-iH6vpwC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                            "thumbnail": "http://books.google.com/books/content?id=yDyJ-iH6vpwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+                            },
+                            "language": "en",
+                            "previewLink": "http://books.google.com/books?id=yDyJ-iH6vpwC&pg=PA4&dq=modern+web&hl=&cd=9&source=gbs_api",
+                            "infoLink": "https://play.google.com/store/books/details?id=yDyJ-iH6vpwC&source=gbs_api",
+                            "canonicalVolumeLink": "https://play.google.com/store/books/details?id=yDyJ-iH6vpwC"
+                        },
+                        "saleInfo": {
+                            "country": "US",
+                            "saleability": "FOR_SALE",
+                            "isEbook": true,
+                            "listPrice": {
+                            "amount": 180,
+                            "currencyCode": "USD"
+                            },
+                            "retailPrice": {
+                            "amount": 144,
+                            "currencyCode": "USD"
+                            },
+                            "buyLink": "https://play.google.com/store/books/details?id=yDyJ-iH6vpwC&rdid=book-yDyJ-iH6vpwC&rdot=1&source=gbs_api",
+                            "offers": [
+                            {
+                                "finskyOfferType": 1,
+                                "listPrice": {
+                                "amountInMicros": 180000000,
+                                "currencyCode": "USD"
+                                },
+                                "retailPrice": {
+                                "amountInMicros": 144000000,
+                                "currencyCode": "USD"
+                                },
+                                "giftable": true
+                            }
+                            ]
+                        },
+                        "accessInfo": {
+                            "country": "US",
+                            "viewability": "PARTIAL",
+                            "embeddable": true,
+                            "publicDomain": false,
+                            "textToSpeechPermission": "ALLOWED",
+                            "epub": {
+                            "isAvailable": false
+                            },
+                            "pdf": {
+                            "isAvailable": true,
+                            "acsTokenLink": "http://books.google.com/books/download/Software_Engineering_for_Modern_Web_Appl-sample-pdf.acsm?id=yDyJ-iH6vpwC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+                            },
+                            "webReaderLink": "http://play.google.com/books/reader?id=yDyJ-iH6vpwC&hl=&source=gbs_api",
+                            "accessViewStatus": "SAMPLE",
+                            "quoteSharingAllowed": false
+                        },
+                        "searchInfo": {
+                            "textSnippet": "Traditional legacy information one-to-many, many-to-one, and many-to-many). and database systems are being progressively migrated to the Web. \u003cb\u003eModern Web\u003c/b\u003e applications • Information science: Information organisation, presentation,&nbsp;..."
+                        }
+                        },
+                        {
+                        "kind": "books#volume",
+                        "id": "JK-TEAAAQBAJ",
+                        "etag": "Kr95WE4gUaE",
+                        "selfLink": "https://www.googleapis.com/books/v1/volumes/JK-TEAAAQBAJ",
+                        "volumeInfo": {
+                            "title": "Modern Web Development with Deno",
+                            "subtitle": "Develop Modern JavaScript and TypeScript Code with Svelte, React, and GraphQL (English Edition)",
+                            "authors": [
+                            "Mayur Borse"
+                            ],
+                            "publisher": "BPB Publications",
+                            "publishedDate": "2022-10-07",
+                            "description": "Learn Deno with TypeScript KEY FEATURES ● Take advantage of modern tools and frameworks like React and GraphQL. ● Exposure to the Deno ecosystem and many different third-party modules. ● Coverage of the creation of UIs and APIs for numerous apps. DESCRIPTION Deno is a web platform that offers capabilities for JavaScript and TypeScript and supports modern web standards. It is a straightforward, up-to-date, secure runtime environment for web developers. This book will teach all you need to know about Deno's primitives, its ideas, and how you can use them to build applications that work in the real world. The book's first part is devoted to familiarizing you with Deno's runtime and comprehensive ecosystem. This book will help you to get familiar with TypeScript and experiment with Deno. The book will also help you to learn about GraphQL and Oak and build basic scripts. It will help you to design basic web applications such as a phonebook application and a to-do list application, both of which will have their user interfaces (UI) and APIs developed. This book will help you to get a good level of confidence with Deno over NodeJS so that you can start using Deno to build, maintain, and deploy web apps that are reliable and secure. WHAT YOU WILL LEARN ● Get started with the basics of TypeScript and Deno. ● Use Deno to create your next React or Svelte app's user interface. ● Develop a GraphQL API server with Deno. ● Make the most of TypeScript when creating applications. ● Take advantage of the various plugins that Deno and its creators offer. WHO THIS BOOK IS FOR Readers interested in utilizing the power of Deno to fuel their apps, whether they are web developers, TypeScript users, or JavaScript users will find this book helpful. The code will be easier to understand if you are familiar with JavaScript already. TABLE OF CONTENTS 1. The Deno Land 2. Introduction to TypeScript 3. Setting Up Deno 4. Deno Ecosystem 5. Todos App - API 6. Todos App - UI Implementation 7. Introduction to GraphQL, Oak, and Oak-GraphQL 8. PhoneBook App—API Implementation 9. PhoneBook App—UI Implementation",
+                            "industryIdentifiers": [
+                            {
+                                "type": "ISBN_13",
+                                "identifier": "9789355510969"
+                            },
+                            {
+                                "type": "ISBN_10",
+                                "identifier": "9355510969"
+                            }
+                            ],
+                            "readingModes": {
+                            "text": true,
+                            "image": true
+                            },
+                            "pageCount": 207,
+                            "printType": "BOOK",
+                            "categories": [
+                            "Computers"
+                            ],
+                            "maturityRating": "NOT_MATURE",
+                            "allowAnonLogging": false,
+                            "contentVersion": "1.1.1.0.preview.3",
+                            "panelizationSummary": {
+                            "containsEpubBubbles": false,
+                            "containsImageBubbles": false
+                            },
+                            "imageLinks": {
+                            "smallThumbnail": "http://books.google.com/books/content?id=JK-TEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                            "thumbnail": "http://books.google.com/books/content?id=JK-TEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+                            },
+                            "language": "en",
+                            "previewLink": "http://books.google.com/books?id=JK-TEAAAQBAJ&pg=PP1&dq=modern+web&hl=&cd=10&source=gbs_api",
+                            "infoLink": "https://play.google.com/store/books/details?id=JK-TEAAAQBAJ&source=gbs_api",
+                            "canonicalVolumeLink": "https://play.google.com/store/books/details?id=JK-TEAAAQBAJ"
+                        },
+                        "saleInfo": {
+                            "country": "US",
+                            "saleability": "FOR_SALE",
+                            "isEbook": true,
+                            "listPrice": {
+                            "amount": 9.95,
+                            "currencyCode": "USD"
+                            },
+                            "retailPrice": {
+                            "amount": 9.95,
+                            "currencyCode": "USD"
+                            },
+                            "buyLink": "https://play.google.com/store/books/details?id=JK-TEAAAQBAJ&rdid=book-JK-TEAAAQBAJ&rdot=1&source=gbs_api",
+                            "offers": [
+                            {
+                                "finskyOfferType": 1,
+                                "listPrice": {
+                                "amountInMicros": 9950000,
+                                "currencyCode": "USD"
+                                },
+                                "retailPrice": {
+                                "amountInMicros": 9950000,
+                                "currencyCode": "USD"
+                                },
+                                "giftable": true
+                            }
+                            ]
+                        },
+                        "accessInfo": {
+                            "country": "US",
+                            "viewability": "PARTIAL",
+                            "embeddable": true,
+                            "publicDomain": false,
+                            "textToSpeechPermission": "ALLOWED",
+                            "epub": {
+                            "isAvailable": true,
+                            "acsTokenLink": "http://books.google.com/books/download/Modern_Web_Development_with_Deno-sample-epub.acsm?id=JK-TEAAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+                            },
+                            "pdf": {
+                            "isAvailable": true,
+                            "acsTokenLink": "http://books.google.com/books/download/Modern_Web_Development_with_Deno-sample-pdf.acsm?id=JK-TEAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+                            },
+                            "webReaderLink": "http://play.google.com/books/reader?id=JK-TEAAAQBAJ&hl=&source=gbs_api",
+                            "accessViewStatus": "SAMPLE",
+                            "quoteSharingAllowed": false
+                        },
+                        "searchInfo": {
+                            "textSnippet": "Develop Modern JavaScript and TypeScript Code with Svelte, React, and GraphQL (English Edition) Mayur Borse. \u003cb\u003eModern Web\u003c/b\u003e Development with Deno Develop Modern JavaScript and TypeScript Code with Svelte , React , and GraphQL Mayur Borse&nbsp;..."
+                        }
+                        }
+                    ]
+                    };
+
+
+                    var bookList = $("#bookList");
+                    //JQuery loop to create variables for each item in the json file
+                    $.each(booksData.items, function(index, book) {
+                        var thumbnail = book.volumeInfo.imageLinks.thumbnail;
+                        var title = book.volumeInfo.title;
+                        var subtitle = book.volumeInfo.subtitle;
+                        var authors = book.volumeInfo.authors.join(", ");
+                        var description = book.volumeInfo.description;
+                        var publisher = book.volumeInfo.publisher;
+                        var publishedDate = book.volumeInfo.publishedDate;
+                        var pageCount = book.volumeInfo.pageCount;
+                        var industryIdentifiers = book.volumeInfo.industryIdentifiers;
+                        var printType = book.volumeInfo.printType;
+                        var categories = book.volumeInfo.categories.join(", ");
+                        var averageRating = book.volumeInfo.averageRating;
+                        var ratingsCount = book.volumeInfo.ratingsCount;
+                        var maturityRating = book.volumeInfo.maturityRating;
+                        var contentVersion = book.volumeInfo.contentVersion;
+                        var language = book.volumeInfo.language;
+                        var previewLink = book.volumeInfo.previewLink;
+                        var infoLink = book.volumeInfo.infoLink;
+                        var canonicalVolumeLink = book.volumeInfo.canonicalVolumeLink;
+                        
+                        //creating list to display each book item in html
+                        var listItem = $("<li>").css("list-style", "none").html(
+                        "<img src='" + thumbnail + "' alt='Thumbnail'>" + "<br>" + 
+                        "<b>Title:</b> " + title + "<br>" +
+                        "<b>Subtitle:</b> " + subtitle + "<br>" +
+                        "<b>Authors:</b> " + authors + "<br>" +                            
+                        "<b>Description:</b> " + description + "<br>" +                            
+                        "<b>Publisher:</b> " + publisher + ", " + publishedDate + "<br>" +                            
+                        "<b>Pages:</b> " + pageCount + "<br>" +
+                        "<b>Industry Identifiers:</b> " + JSON.stringify(industryIdentifiers) + "<br>" +
+                        "<b>Print Type:</b> " + printType + "<br>" +
+                        "<b>Categories:</b> " + categories + "<br>" +
+                        "<b>Average Rating:</b> " + averageRating + "<br>" +
+                        "<b>Ratings Count:</b> " + ratingsCount + "<br>" +
+                        "<b>Maturity Rating:</b> " + maturityRating + "<br>" +
+                        "<b>Version:</b> " + contentVersion + "<br>" + 
+                        "<b>Language:</b> " + language + "<br>" +
+                        "<a href='" + previewLink + "'>Preview</a><br>" +
+                        "<a href='" + infoLink + "'>More Information</a><br>" +
+                        "<a href='" + canonicalVolumeLink + "'>Canonical URL</a><br><br><br>"                            
+                        );                            
+                                                    
+                        //appending the list
+                        bookList.append(listItem);
+                    });
+                    });       
+            </script>  
+            </div>
+        </div>
+
+        <!--Footer-->
+        <footer>
+            <p>This is a project for IT 4403 @ Kennesaw State University created by Gabrielle Hooper</p>
+        </footer>
+
+        <!-- Dropdown Script -->
+        <script>    
+            var dropdown = document.getElementsByClassName("dropdown-btn");
+            var i;
+                    
+            for (i = 0; i < dropdown.length; i++) {
+                dropdown[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var dropdownContent = this.nextElementSibling;
+                    if (dropdownContent.style.display === "block") {
+                        dropdownContent.style.display = "none";
+                    } else {
+                        dropdownContent.style.display = "block";
+                    }
+                });
+            }
+        </script>
+        <!-- End Dropdown Script -->
+
+    </body>
+
+</html>
