@@ -30,7 +30,7 @@ $(document).ready(function() {
               displayResults(response);
             }
           },
-          error: function() {
+          Error: function() {
             alert("Something went wrong... " + "Try Again!");
           }
         });
