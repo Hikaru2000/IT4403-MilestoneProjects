@@ -17,7 +17,7 @@ $(document).ready(function() {
       }
       else {
         $.ajax({
-          url: bookUrl + searchData,
+          url: bookUrl + searchData + "&maxResults=40",
           dataType: "json",
           success: function(response) {
             console.log(response)
