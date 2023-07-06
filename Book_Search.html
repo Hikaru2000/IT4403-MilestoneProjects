@@ -63,8 +63,10 @@
                 <button type="submit" id="searchbutton">Search</button>
             </div>
             <div id="results" style="display: flex; flex-wrap: wrap;"></div>
-                <a id = "2ndPage" target="_blank"> 2ndPage</a>
-                <a id = "3rdPage" target="_blank"> 3rdPage</a>
+                <div class = "pagination">
+                    <a id = "2ndPage" target="_blank"> 2</a>
+                    <a id = "3rdPage" target="_blank"> 3</a>
+                </div>div>    
                 <script>
                     $(function() {
                         const queryString = window.location.search;
@@ -94,16 +96,15 @@
                             $(".bookdiv").css("width","300px");
                         });
 
-                        $("#2ndPage").attr('href', "Book_Search.html?q="+q+"&startIndex=15&maxResults=30");
-                        $("#3rdPage").attr('href', "Book_Search.html?q="+q+"&startIndex=30&maxResults=40");
+                        <div class="pagination">
+                            $("#2ndPage").attr('href', "Book_Search.html?q="+q+"&startIndex=15&maxResults=30");
+                            $("#3rdPage").attr('href', "Book_Search.html?q="+q+"&startIndex=30&maxResults=40");
+                        </div>
                     });
 
                     $('#searchbutton').click(function() {
                         var searchWord = $('#searchbox').val();
-                        searchBook(searchWord);
-                        $("header").animate({'margin-top': '5px'}, 1000);
-                        $("searchcontainer").css("visibility", "visible");
-                    
+                        searchBook(searchWord);                    
                     });;
 
                     function searchBook(searchWord){
