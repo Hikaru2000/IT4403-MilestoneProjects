@@ -6,9 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta name="theme-color" content="#000000"/>
 
-        <!-- JSON Link -->
-        <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-
         <!-- Icon Image Link -->
         <link rel="icon" type="image/png" href="favicon.png"/>
 
@@ -18,150 +15,11 @@
 
         <!-- Script Links -->
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <script src="/js/App.js"></script>
         <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
        
 
 
         <title>Book Search</title>
-
-    <style>
-        #search {
-          display: flex;
-          align-items: center;
-          margin-bottom: 20px;
-        }
-        #searchbox {
-          flex: 1;
-          height: 40px;
-          padding: 0 10px;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          font-size: 15px;
-        }
-        #searchbutton {
-          height: 40px;
-          padding: 0 20px;
-          margin-left: 10px;
-          border: none;
-          background-color: blue;
-          color: white;
-          border-radius: 4px;
-          cursor: pointer;
-          font-size: 15px;
-        }
-        
-  </style>
-        <!--
-        <style>
-            .sidenav {
-                height: 100%; /* Full Height */
-                width: 200px; /* 200px Width */
-                list-style-type: none; /* No bullets */
-                margin: 0;
-                padding: 0;
-                top: 0; /* Against top of page */
-                left: 0; /* Against far left of page */
-                padding-top: 20px; /* Extra space between words on top */
-                z-index: 1;
-                position: fixed; /* Bar does not move with page */
-                overflow: auto;
-                background-color: #000000;
-            }
-
-            .sidenav a, .dropdown-btn {
-                display: block;
-                padding: 6px 8px 6px 16px;
-                text-decoration: none;
-                background: none;
-                color: white;
-                font-size: 20px;
-                display: block;
-                border: none;
-                width: 100%;
-                text-align: left;
-                cursor: pointer;
-                outline: none;
-                font-family: Georgia, 'Times New Roman', Times, serif;
-            }
-
-            /* Link color on hover */
-            .sidenav a:hover, .dropdown-btn:hover {
-                background-color: #ffc629;
-                color: black;
-            }
-
-            /* Button color while active */
-            .active {
-                background-color: #ffc629;
-                color: black;
-            }
-
-            /* Style the dropdown container */
-            .dropdown-container {
-                display: none;
-                background-color:#000000;
-                padding-right: 8px;
-            }
-
-            /* Style the Caret */
-            .fa-caret-down {
-                float: right;
-                padding-right: 8px;
-            }
-
-            /* Some media queries for responsiveness */
-            @media screen and (max-height: 450px) {
-                .sidenav {padding-top: 15px;}
-                .sidenav a {font-size: 18px;}
-            }
-
-            .content {
-                margin-left: 200px;
-                padding-left: 30px;
-            }
-
-            body {
-                font-family: Georgia, 'Times New Roman', Times, serif;
-            }
-
-            /*Creating container for content*/
-            .container {
-            margin-left: 200px;
-            padding-left: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            }
-
-            .box {
-            text-align: left;
-            padding: 20px;
-            }
-
-            body {
-                font-family: Georgia, 'Times New Roman', Times, serif;
-            }
-
-            /* Add style to the footer*/
-            footer {
-                background-color: black;
-                color: white;
-                padding: 10px;
-                text-align: center;
-                margin-left: 200px;
-                position: absolute;
-                left: 0;
-                bottom: 0;     
-                width: 100%;
-                height: 60px;
-            }
-
-        </style>
-        -->
-
-
 
     </head>
 
@@ -169,28 +27,28 @@
         
         <!-- Navigation Bar -->
         
-         <div class = "sidenav"> 
+        <div class = "sidenav"> 
             <a href="index.html"> Home </a>
             <!-- Milestone 1 Dropdown Button -->
             <button class="dropdown-btn">
-            Milestone 1 
-            <i class="fa fa-caret-down"></i>
+                Milestone 1 
+                <i class="fa fa-caret-down"></i>
             </button>
-            <!-- Dropdown Container -->
-            <div class="dropdown-container">
-                <a href="Single_Book.html">Single Book</a>
-                <a href="Search_Page.html">Search Page</a>
-            </div>
+                <!-- Dropdown Container -->
+                <div class="dropdown-container">
+                    <a href="Single_Book.html">Single Book</a>
+                    <a href="Search_Page.html">Search Page</a>
+                </div>
             <!-- Milestone 2 Dropdown Button -->
-           <button class="dropdown-btn">
-            Milestone 2
-            <i class="fa fa-caret-down"></i>
+            <button class="dropdown-btn">
+                Milestone 2
+                <i class="fa fa-caret-down"></i>
             </button>
-            <!-- Dropdown Container -->
-            <div class="dropdown-container">
-                <a href="Book_Search.html">Book Search</a>
-                <a href="Bookshelf.html">Bookshelf</a>
-            </div>
+                <!-- Dropdown Container -->
+                <div class="dropdown-container">
+                    <a href="Book_Search.html">Book Search</a>
+                    <a href="Bookshelf.html">Bookshelf</a>
+                </div>
             <!-- Unfinished Pages -->
             <a href="Milestone3.html">Milestone 3</a>
             <a href="Milestone4.html">Milestone 4</a>
@@ -198,102 +56,83 @@
         <!-- End Navigation Bar -->
 
         <!-- Content -->
-        <h1>Search Google Books</h1>
-        <div id="searchcontainer" style="margin-left:200px;">
-            <input type="text" id="searchbox" placeholder="Please Search Something" required>
-            <button type="submit" id="searchbutton">Search</button>
-        </div>
-        <div id="results" style="display: flex; flex-wrap: wrap;" style="margin-left:200px;"></div>
-            <a id = "2ndPage" target="_blank"> 2ndPage</a>
-            <a id = "3rdPage" target="_blank"> 3rdPage</a>
-            <script>
-            $(function() {
-                const queryString = window.location.search;
-        		console.log(queryString);
-        		const urlParams = new URLSearchParams(queryString);
-        		const q=urlParams.get('q');
-                const startIndex=urlParams.get('startIndex');
-                const MaxResults=urlParams.get('maxResults');
-                
-               var urlparameters="?q="+q+"&startIndex="+startIndex+"&maxResults="+MaxResults
-        		var service_point="https://www.googleapis.com/books/v1/volumes/"+urlparameters;
-                $.get(service_point,function(json){
-                console.log(json);
-                var resultHTML="";
-                for(i in json.items){
-                    var booktitle=json.items[i].volumeInfo.title;
-                    var bookid=json.items[i].id;
-                    var cover="";
-                    cover=json.items[i].volumeInfo.imageLinks.smallThumbnail;
-                    resultHTML+='<div class="bookdiv">';
-                    resultHTML+='<img src="'+cover+'" style="float: left"/>';
-                    resultHTML+='<a href="Book_Details.html?id='+bookid+'">'+booktitle+'</a>';
-                    resultHTML+='</div>';;
-                };
-                $("#results").html(resultHTML);
-                $(".bookdiv").css("width","300px");
-                });
-                $("#2ndPage").attr('href', "Book_Search.html?q="+q+"&startIndex=15&maxResults=30");
-        		$("#3rdPage").attr('href', "Book_Search.html?q="+q+"&startIndex=30&maxResults=40");
-                });
-              $('#searchbutton').click(function() {
-                var searchWord = $('#searchbox').val();
-                searchBook(searchWord);
-            
-              });
-              ;
-              function searchBook(searchWord){
-              var parameter="?q="+searchWord+"&startIndex=0&maxResults=15";
-            var service_point="https://www.googleapis.com/books/v1/volumes/"+parameter;
-            $.get(service_point,function(json)
-            {
-                console.log(json);
-                var resultHTML="";
-                for(i in json.items){
-                    var booktitle=json.items[i].volumeInfo.title;
-                    var bookid=json.items[i].id;
-                    var cover="";
-                    cover=json.items[i].volumeInfo.imageLinks.smallThumbnail;
-                    resultHTML+='<div class="bookdiv">';
-                    resultHTML+='<img src="'+cover+'" style="float: left"/>';
-                    resultHTML+='<a href="Book_Details.html?id='+bookid+'">'+booktitle+'</a>';
-                    resultHTML+='</div>';;
-                };
-                $("#results").html(resultHTML);
-                $(".bookdiv").css("width","300px");
-                
-                });
-                $("#2ndPage").attr('href', "Book_Search.html?q="+searchWord+"&startIndex=15&maxResults=30");
-        		$("#3rdPage").attr('href', "Book_Search.html?q="+searchWord+"&startIndex=30&maxResults=40");
-            };
-            
-              
-            
-            
-            </script>
-  
-        
-        <!--        <div class = "container">
-            <div id="Search-title" class="center"> 
-                <h1 id="header" class="text-center mt-5"> Book Search </h1>
-                <div class="row">
-                    <div id="input" class="input-group mx-auto col-lg-6 col-md-8 col-sm-12">
-                        <input id="search-box" type="text" class="form-control" placeholder="Search Books...">
-                        <button id="search" class="btn btn-primary" onclick="">Search</button>
-                    </div>
-                </div>
+        <div class = "content">
+            <h1 id="header">Search Google Books</h1>
+            <div id="searchcontainer">
+                <input type="text" id="searchbox" placeholder="Please Search Something" required>
+                <button type="submit" id="searchbutton">Search</button>
             </div>
+            <div id="results" style="display: flex; flex-wrap: wrap;"></div>
+                <a id = "2ndPage" target="_blank"> 2ndPage</a>
+                <a id = "3rdPage" target="_blank"> 3rdPage</a>
+                <script>
+                    $(function() {
+                        const queryString = window.location.search;
+                        console.log(queryString);
+                        const urlParams = new URLSearchParams(queryString);
+                        const q=urlParams.get('q');
+                        const startIndex=urlParams.get('startIndex');
+                        const MaxResults=urlParams.get('maxResults');
+                        
+                        var urlparameters="?q="+q+"&startIndex="+startIndex+"&maxResults="+MaxResults
+                        var service_point="https://www.googleapis.com/books/v1/volumes/"+urlparameters;
+                        $.get(service_point,function(json){
+                            console.log(json);
+                            var resultHTML="";
+                            for(i in json.items){
+                                var booktitle=json.items[i].volumeInfo.title;
+                                var bookid=json.items[i].id;
+                                var cover="";
+                                cover=json.items[i].volumeInfo.imageLinks.smallThumbnail;
+                                resultHTML+='<div class="bookdiv">';
+                                resultHTML+='<img src="'+cover+'" style="float: left"/>';
+                                resultHTML+='<a href="Book_Details.html?id='+bookid+'">'+booktitle+'</a>';
+                                resultHTML+='</div>';;
+                            };
 
-            <div class="book-list">
-                <h2 class="text-center"> Search Results </h2>
-                <div id="list-output" class="">
-                    <div class="row">
-                        <!-- Card -->
-  <!--                  </div>
-                </div>    
-            </div>
-        </div> -->
-        <!-- End Content -->
+                            $("#results").html(resultHTML);
+                            $(".bookdiv").css("width","300px");
+                        });
+
+                        $("#2ndPage").attr('href', "Book_Search.html?q="+q+"&startIndex=15&maxResults=30");
+                        $("#3rdPage").attr('href', "Book_Search.html?q="+q+"&startIndex=30&maxResults=40");
+                    });
+
+                    $('#searchbutton').click(function() {
+                        var searchWord = $('#searchbox').val();
+                        searchBook(searchWord);
+                        $("header").animate({'margin-top': '5px'}, 1000);
+                        $("searchcontainer").css("visibility", "visible");
+                    
+                    });;
+
+                    function searchBook(searchWord){
+                        var parameter="?q="+searchWord+"&startIndex=0&maxResults=15";
+                        var service_point="https://www.googleapis.com/books/v1/volumes/"+parameter;
+                        $.get(service_point,function(json)
+                        {
+                            console.log(json);
+                            var resultHTML="";
+                            for(i in json.items){
+                                var booktitle=json.items[i].volumeInfo.title;
+                                var bookid=json.items[i].id;
+                                var cover="";
+                                cover=json.items[i].volumeInfo.imageLinks.smallThumbnail;
+                                resultHTML+='<div class="bookdiv">';
+                                resultHTML+='<img src="'+cover+'" style="float: left"/>';
+                                resultHTML+='<a href="Book_Details.html?id='+bookid+'">'+booktitle+'</a>';
+                                resultHTML+='</div>';;
+                            };
+                            $("#results").html(resultHTML);
+                            $(".bookdiv").css("width","300px");
+                            
+                        });
+
+                        $("#2ndPage").attr('href', "Book_Search.html?q="+searchWord+"&startIndex=15&maxResults=30");
+                        $("#3rdPage").attr('href', "Book_Search.html?q="+searchWord+"&startIndex=30&maxResults=40");
+                    };
+                </script>
+        </div>
 
         <!-- Footer -->
         <footer>
@@ -320,11 +159,5 @@
         </script>
         <!-- End Dropdown Script -->
         
-        <!-- Link to Boostrap -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-        <link rel="stylesheet" href="style.css">
-        <script src="App.js"></script>
     </body>
 </html>
