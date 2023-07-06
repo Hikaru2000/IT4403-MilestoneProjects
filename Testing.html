@@ -52,6 +52,7 @@
             <!-- Unfinished Pages -->
             <a href="Milestone3.html">Milestone 3</a>
             <a href="Milestone4.html">Milestone 4</a>
+            <a href="Testing.html"> Test </a>
         </div>
         <!-- End Navigation Bar -->
 
@@ -62,9 +63,12 @@
                 <input type="text" id="searchbox" placeholder="Please Search Something" required>
                 <button type="submit" id="searchbutton">Search</button>
             </div>
-            <div id="results" style="display: flex; flex-wrap: wrap;"></div>
-                <a id = "2ndPage" target="_blank"> 2ndPage</a>
-                <a id = "3rdPage" target="_blank"> 3rdPage</a>
+            <div id="results" style="display: flex; flex-wrap: wrap; padding: 20px;"></div>
+                <div class = "pagination">
+                    <a id = "1stPage" target="_blank" class=".active"> 1 </a>
+                    <a id = "2ndPage" target="_blank"> 2 </a>
+                    <a id = "3rdPage" target="_blank"> 3 </a>
+                </div>    
                 <script>
                     $(function() {
                         const queryString = window.location.search;
@@ -94,8 +98,10 @@
                             $(".bookdiv").css("width","300px");
                         });
 
-                        $("#2ndPage").attr('href', "Book_Search.html?q="+q+"&startIndex=15&maxResults=30");
-                        $("#3rdPage").attr('href', "Book_Search.html?q="+q+"&startIndex=30&maxResults=40");
+                            $("#1stPage").attr('href', "Book_Search.html?q="+q+"&startIndex=0&maxResults=15");
+                            $("#2ndPage").attr('href', "Book_Search.html?q="+q+"&startIndex=15&maxResults=30");
+                            $("#3rdPage").attr('href', "Book_Search.html?q="+q+"&startIndex=30&maxResults=40");
+
                     });
 
                     $('#searchbutton').click(function() {
@@ -103,7 +109,6 @@
                         searchBook(searchWord);
                         $("header").animate({'margin-top': '5px'}, 1000);
                         $("searchcontainer").css("visibility", "visible");
-                    
                     });;
 
                     function searchBook(searchWord){
@@ -128,8 +133,10 @@
                             
                         });
 
-                        $("#2ndPage").attr('href', "Book_Search.html?q="+searchWord+"&startIndex=15&maxResults=30");
-                        $("#3rdPage").attr('href', "Book_Search.html?q="+searchWord+"&startIndex=30&maxResults=40");
+                            $("#1stPage").attr('href', "Book_Search.html?q="+searchWord+"&startIndex=0&maxResults=15");
+                            $("#2ndPage").attr('href', "Book_Search.html?q="+searchWord+"&startIndex=15&maxResults=30");
+                            $("#3rdPage").attr('href', "Book_Search.html?q="+searchWord+"&startIndex=30&maxResults=40");
+                       
                     };
                 </script>
         </div>
