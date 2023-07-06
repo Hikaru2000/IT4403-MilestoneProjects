@@ -55,6 +55,7 @@
           display: none;
           background-color:#000000;
           padding-right: 8px;
+          font-size: h2;
      }
 
      /* Style the Caret */
@@ -85,13 +86,12 @@
 
 
 /* Book Search */
-/* Book Search */
-
      #search {
           display: flex;
           align-items: center;
           margin-bottom: 20px;
      }
+
      #searchbox {
           flex: 1;
           height: 40px;
@@ -100,6 +100,7 @@
           border-radius: 4px;
           font-size: 15px;
      }
+
      #searchbutton {
           height: 40px;
           padding: 0 20px;
@@ -128,11 +129,35 @@
      }
 
      #header {
+          font-family:Georgia, 'Times New Roman', Times, serif;
           font-size: 3rem;
           margin:auto;
+          text-align:center;
           margin-top:200px;
      }
-/* End Book Search 
+/* End Book Search */
+
+/* Page Selection */
+     .pagination {
+          display: inline-block;
+     }
+
+     .pagination a {
+          color: black;
+          float: left;
+          padding: 8px 16px;
+          text-decoration: none;
+     }
+
+     .pagination a.active {
+          background-color: #ffc629;
+          color: black;
+     }
+
+     .pagination a:hover:not(.active) {
+          background-color: #ddd;
+     }
+/* End Page Selection */
 
 
 /* Every Page - Footer */
