@@ -85,10 +85,37 @@
 
 
 /* Book Search */
-/* Book List */
-     .book-list {
-          margin-top: 50px;
-          visibility: hidden; /* Hide book list until search results */
+/* Book Search */
+
+     #search {
+          display: flex;
+          align-items: center;
+          margin-bottom: 20px;
+     }
+     #searchbox {
+          flex: 1;
+          height: 40px;
+          padding: 0 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-size: 15px;
+     }
+     #searchbutton {
+          height: 40px;
+          padding: 0 20px;
+          margin-left: 10px;
+          border: none;
+          background-color: blue;
+          color: white;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 15px;
+     }
+
+     #searchcontainer {
+          margin:auto;
+          visibility:hidden;
+          margin-top:50px;
      }
 
      .container {
@@ -102,11 +129,8 @@
 
      #header {
           font-size: 3rem;
-     }
-
-     .center {
-          margin: auto;
-          margin-top: 200px;
+          margin:auto;
+          margin-top:200px;
      }
 /* End Book Search 
 
