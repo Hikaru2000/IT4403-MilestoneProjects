@@ -24,7 +24,34 @@ ch<!DOCTYPE html>
 
 
         <title>Book Search</title>
+
+    <style>
+        #search {
+          display: flex;
+          align-items: center;
+          margin-bottom: 20px;
+        }
+        #searchbox {
+          flex: 1;
+          height: 40px;
+          padding: 0 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-size: 15px;
+        }
+        #searchbutton {
+          height: 40px;
+          padding: 0 20px;
+          margin-left: 10px;
+          border: none;
+          background-color: blue;
+          color: white;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 15px;
+        }
         
+  </style>
         <!--
         <style>
             .sidenav {
@@ -141,7 +168,8 @@ ch<!DOCTYPE html>
     <body>
         
         <!-- Navigation Bar -->
-        <div class = "sidenav"> 
+        
+         <div class = "sidenav"> 
             <a href="index.html"> Home </a>
             <!-- Milestone 1 Dropdown Button -->
             <button class="dropdown-btn">
@@ -154,7 +182,7 @@ ch<!DOCTYPE html>
                 <a href="Search_Page.html">Search Page</a>
             </div>
             <!-- Milestone 2 Dropdown Button -->
-            <button class="dropdown-btn">
+           <button class="dropdown-btn">
             Milestone 2
             <i class="fa fa-caret-down"></i>
             </button>
@@ -170,7 +198,82 @@ ch<!DOCTYPE html>
         <!-- End Navigation Bar -->
 
         <!-- Content -->
-        <div class = "container">
+        <h1>Search Google Books</h1>
+        <div id="searchcontainer">
+            <input type="text" id="searchbox" placeholder="Please Search Something" required>
+            <button type="submit" id="searchbutton">Search</button>
+        </div>
+        <div id="results" style="display: flex; flex-wrap: wrap;"></div>
+            <a id = "2ndPage" target="_blank"> 2ndPage</a>
+            <a id = "3rdPage" target="_blank"> 3rdPage</a>
+            <script>
+            $(function() {
+                const queryString = window.location.search;
+        		console.log(queryString);
+        		const urlParams = new URLSearchParams(queryString);
+        		const q=urlParams.get('q');
+                const startIndex=urlParams.get('startIndex');
+                const MaxResults=urlParams.get('maxResults');
+                
+               var urlparameters="?q="+q+"&startIndex="+startIndex+"&maxResults="+MaxResults
+        		var service_point="https://www.googleapis.com/books/v1/volumes/"+urlparameters;
+                $.get(service_point,function(json){
+                console.log(json);
+                var resultHTML="";
+                for(i in json.items){
+                    var booktitle=json.items[i].volumeInfo.title;
+                    var bookid=json.items[i].id;
+                    var cover="";
+                    cover=json.items[i].volumeInfo.imageLinks.smallThumbnail;
+                    resultHTML+='<div class="bookdiv">';
+                    resultHTML+='<img src="'+cover+'" style="float: left"/>';
+                    resultHTML+='<a href="M2Details.html?id='+bookid+'">'+booktitle+'</a>';
+                    resultHTML+='</div>';;
+                };
+                $("#results").html(resultHTML);
+                $(".bookdiv").css("width","300px");
+                });
+                $("#2ndPage").attr('href', "M2Search.html?q="+q+"&startIndex=15&maxResults=30");
+        		$("#3rdPage").attr('href', "M2Search.html?q="+q+"&startIndex=30&maxResults=40");
+                });
+              $('#searchbutton').click(function() {
+                var searchWord = $('#searchbox').val();
+                searchBook(searchWord);
+            
+              });
+              ;
+              function searchBook(searchWord){
+              var parameter="?q="+searchWord+"&startIndex=0&maxResults=15";
+            var service_point="https://www.googleapis.com/books/v1/volumes/"+parameter;
+            $.get(service_point,function(json)
+            {
+                console.log(json);
+                var resultHTML="";
+                for(i in json.items){
+                    var booktitle=json.items[i].volumeInfo.title;
+                    var bookid=json.items[i].id;
+                    var cover="";
+                    cover=json.items[i].volumeInfo.imageLinks.smallThumbnail;
+                    resultHTML+='<div class="bookdiv">';
+                    resultHTML+='<img src="'+cover+'" style="float: left"/>';
+                    resultHTML+='<a href="M2Details.html?id='+bookid+'">'+booktitle+'</a>';
+                    resultHTML+='</div>';;
+                };
+                $("#results").html(resultHTML);
+                $(".bookdiv").css("width","300px");
+                
+                });
+                $("#2ndPage").attr('href', "M2Search.html?q="+searchWord+"&startIndex=15&maxResults=30");
+        		$("#3rdPage").attr('href', "M2Search.html?q="+searchWord+"&startIndex=30&maxResults=40");
+            };
+            
+              
+            
+            
+            </script>
+  
+        
+        <!--        <div class = "container">
             <div id="Search-title" class="center"> 
                 <h1 id="header" class="text-center mt-5"> Book Search </h1>
                 <div class="row">
@@ -186,10 +289,10 @@ ch<!DOCTYPE html>
                 <div id="list-output" class="">
                     <div class="row">
                         <!-- Card -->
-                    </div>
+  <!--                  </div>
                 </div>    
             </div>
-        </div>
+        </div> -->
         <!-- End Content -->
 
         <!-- Footer -->
