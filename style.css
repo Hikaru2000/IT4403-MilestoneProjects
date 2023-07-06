@@ -141,6 +141,7 @@
 /* Page Selection */
      .pagination {
           display: inline-block;
+          text-align: center;
      }
 
      .pagination a {
