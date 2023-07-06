@@ -82,6 +82,10 @@
      body {
           font-family: Georgia, 'Times New Roman', Times, serif;
      }
+
+     .center {
+          text-align: center;
+     }
 /* End Content / Body */
 
 
