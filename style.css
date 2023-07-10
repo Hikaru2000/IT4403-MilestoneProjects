@@ -55,6 +55,9 @@
           display: none;
           background-color:#000000;
           padding-right: 8px;
+     }
+
+     .dropdown-container: a {
           font-size: 24px;
      }
 
