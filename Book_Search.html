@@ -80,9 +80,11 @@
                 <div class="center">
                     <div class = "pagination">
                         <a href = "#">&laquo</a>
-                        <a class = "active" href = "#">1</a>
-                        <a id = "2ndPage" target="_blank"> 2</a>
-                        <a id = "3rdPage" target="_blank"> 3</a>
+                        <a id = "1stPage" class = "active" href = "_blank"> 1 </a>
+                        <a id = "2ndPage" target="_blank"> 2 </a>
+                        <a id = "3rdPage" target="_blank"> 3 </a>
+                        <a id = "4thPage" target="_blank"> 4 </a>
+                        <a id = "5thPage" target="_blank"> 5 </a>
                         <a href = "#">&raquo</a>
                     </div>
                 </div>    
@@ -114,9 +116,11 @@
                             $("#results").html(resultHTML);
                             $(".bookdiv").css("width","300px");
                         });
-
-                            $("#2ndPage").attr('href', "Book_Search.html?q="+q+"&startIndex=15&maxResults=30");
-                            $("#3rdPage").attr('href', "Book_Search.html?q="+q+"&startIndex=30&maxResults=40");
+                            $("1stPage").attr('href', "Book_Search.html?q="+q+"&maxResults=10");
+                            $("#2ndPage").attr('href', "Book_Search.html?q="+q+"&startIndex=11&maxResults=20");
+                            $("#3rdPage").attr('href', "Book_Search.html?q="+q+"&startIndex=21&maxResults=30");
+                            $("#4thPage").attr('href', "Book_Search.html?q="+q+"&startIndex=31&maxResults=40");
+                            $("#5thPage").attr('href', "Book_Search.html?q="+q+"&startIndex=41&maxResults=50");
 
                     });
 
@@ -148,9 +152,11 @@
                             $(".bookdiv").css("width","300px");
                             
                         });
-
-                            $("#2ndPage").attr('href', "Book_Search.html?q="+searchWord+"&startIndex=15&maxResults=30");
-                            $("#3rdPage").attr('href', "Book_Search.html?q="+searchWord+"&startIndex=30&maxResults=40");
+                            $("1stPage").attr('href', "Book_Search.html?q="+q+"&maxResults=10");
+                            $("#2ndPage").attr('href', "Book_Search.html?q="+q+"&startIndex=11&maxResults=20");
+                            $("#3rdPage").attr('href', "Book_Search.html?q="+q+"&startIndex=21&maxResults=30");
+                            $("#4thPage").attr('href', "Book_Search.html?q="+q+"&startIndex=31&maxResults=40");
+                            $("#5thPage").attr('href', "Book_Search.html?q="+q+"&startIndex=41&maxResults=50");
                        
                     };
                 </script>
