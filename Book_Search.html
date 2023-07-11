@@ -100,7 +100,7 @@
                         const q=urlParams.get('q');
                         const startIndex=urlParams.get('startIndex');
                         const MaxResults=urlParams.get('maxResults');
-                        $(".pagination").css("visibility", "visible");
+
                         
                         var urlparameters="?q="+q+"&startIndex="+startIndex+"&maxResults="+MaxResults
                         var service_point="https://www.googleapis.com/books/v1/volumes/"+urlparameters;
@@ -153,6 +153,7 @@
                             };
                             $("#results").html(resultHTML);
                             $(".bookdiv").css("width","300px");
+                            $(".pagination").css("visibility", "visible");
                             
                         });
                             $("1stPage").attr('href', "Book_Search.html?q="+searchWord+"&maxResults=10");
