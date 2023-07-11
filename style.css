@@ -45,7 +45,7 @@
      }
 
      /* Button color while active */
-     .active {
+     #active {
           background-color: #ffc629;
           color: black;
      }
