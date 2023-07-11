@@ -109,7 +109,7 @@
                         const q=urlParams.get('q');
                         const startIndex=urlParams.get('startIndex');
                         const MaxResults=urlParams.get('maxResults');
-
+                        $(".pagination").css("visibility", "visible");
                         
                         var urlparameters="?q="+q+"&startIndex="+startIndex+"&maxResults="+MaxResults
                         var service_point="https://www.googleapis.com/books/v1/volumes/"+urlparameters;
@@ -135,7 +135,7 @@
                             $("#3rdPage").attr('href', "Book_Search.html?q="+q+"&startIndex=21&maxResults=10");
                             $("#4thPage").attr('href', "Book_Search.html?q="+q+"&startIndex=31&maxResults=10");
                             $("#5thPage").attr('href', "Book_Search.html?q="+q+"&startIndex=41&maxResults=10");
-                            $(".pagination").css("visibility", "visible");
+                            /* definetely not this one $(".pagination").css("visibility", "visible");*/
 
                     });
 
