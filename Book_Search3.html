@@ -12,9 +12,6 @@
         <!-- CSS Style Sheet -->
         <link rel="stylesheet" href="style.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-        <!-- Script Links -->
-
        
         <style>
             .footer {
@@ -76,29 +73,19 @@
         <!-- End Navigation Bar -->
 
         <!-- Content -->
-        <!-- Container for Search Area -->
-        <div class="container">
-            <div id="title" class="center">
-                <h1 id="header" class="text-center mt-5">Book Finder</h1>
-                <div class="row">
-                    <!-- Search Bar and Button -->
-                    <div id="input" class="input-group mx-auto col-lg-6 col-md-8 col-sm-12">
-                        <input id="search-box" type="text" class="form-control" placeholder="Search Books!...">
-                        <button id="search" class="btn btn-primary" onclick="">Search</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Results -->
-            <div class="book-list" >
-                <h2 class="text-center">Search Result</h2>
-                    <div class="pagination"></div><br>
-                    <div id="list-output" class="">
-                        <div class="row">
-                            <!-- card  -->
-                        </div "row">
-                    </div "list-output">
-                </div "book-list">
-            </div "Container">
+        <h1>Milestone 3 Search</h1>
+        <div id ="searchContainer">
+        <input type ="text" id ="search_bar">
+        <input type= "button" id ="search_button" value="search">
+        <input type = "button" id="bookshelf_button" value="Bookshelf">
+        </div><hr>
+        <div id="searchResults">
+        </div>
+        <span id="pages"></span><hr>
+        <img id ="thumbnail">
+        <div id ="info1"> </div>
+        </div>
+
  
         <!-- Footer -->
         <footer class="footer">
@@ -132,7 +119,7 @@
         <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
-        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="style.css">
         <script src="JS/main.js"></script>
     </body>
