@@ -149,6 +149,7 @@
      .pagination {
           display: inline-block;
           text-align: center;
+          visibility: hidden;
      }
 
      .pagination a {
