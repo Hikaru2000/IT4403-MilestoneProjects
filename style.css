@@ -149,7 +149,7 @@
      .pagination {
           display: inline-block;
           text-align: center;
-          visibility: hidden;
+          /*visibility: hidden;*/
      }
 
      .pagination a {
