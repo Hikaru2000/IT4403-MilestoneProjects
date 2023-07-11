@@ -14,8 +14,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
         <!-- Script Links -->
-        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
        
         <style>
             .footer {
@@ -84,100 +82,11 @@
         <!-- Content -->
         <div class = "content">
             <h1 id="header">Search Google Books</h1>
-            <div id="searchcontainer">
-                <input type="text" id="searchbox" placeholder="Please Search Something" required>
-                <button type="submit" id="searchbutton">Search</button>
-            </div>
-            <div id="results" style="display: flex; flex-wrap: wrap; padding: 20px;"></div>
-
-                <div class="center">
-                    <div class = "pagination">
-                        <a href = "#">&laquo</a>
-                        <a id = "1stPage" > 1 </a>
-                        <a id = "2ndPage" > 2 </a>
-                        <a id = "3rdPage" > 3 </a>
-                        <a id = "4thPage" > 4 </a>
-                        <a id = "5thPage" > 5 </a>
-                        <a href = "#">&raquo</a>
-                    </div>
-                </div>    
-                <script>
-                    $(function() {
-                        const queryString = window.location.search;
-                        console.log(queryString);
-                        const urlParams = new URLSearchParams(queryString);
-                        const q=urlParams.get('q');
-                        const startIndex=urlParams.get('startIndex');
-                        const MaxResults=urlParams.get('maxResults');
-
-                        
-                        var urlparameters="?q="+q+"&startIndex="+startIndex+"&maxResults="+MaxResults
-                        var service_point="https://www.googleapis.com/books/v1/volumes/"+urlparameters;
-                        $.get(service_point,function(json){
-                            console.log(json);
-                            var resultHTML="";
-                            for(i in json.items){
-                                var booktitle=json.items[i].volumeInfo.title;
-                                var bookid=json.items[i].id;
-                                var cover="";
-                                cover=json.items[i].volumeInfo.imageLinks.smallThumbnail;
-                                resultHTML+='<div class="bookdiv">';
-                                resultHTML+='<img src="'+cover+'" style="float: left"/>';
-                                resultHTML+='<a href="Book_Details.html?id='+bookid+'">'+booktitle+'</a>';
-                                resultHTML+='</div>';;
-                            };
-
-                            $("#results").html(resultHTML);
-                            $(".bookdiv").css("width","300px");
-                        });
-                            $("1stPage").attr('href', "Book_Search.html?q="+q+"&maxResults=10");
-                            $("#2ndPage").attr('href', "Book_Search.html?q="+q+"&startIndex=11&maxResults=10");
-                            $("#3rdPage").attr('href', "Book_Search.html?q="+q+"&startIndex=21&maxResults=10");
-                            $("#4thPage").attr('href', "Book_Search.html?q="+q+"&startIndex=31&maxResults=10");
-                            $("#5thPage").attr('href', "Book_Search.html?q="+q+"&startIndex=41&maxResults=10");
-                            $(".pagination").css("visibility", "visible");
-
-                    });
-
-                    $('#searchbutton').click(function() {
-                        var searchWord = $('#searchbox').val();
-                        searchBook(searchWord);
-                        $(".pagination").css("visibility", "visible");
-                    });;
-
-                    function searchBook(searchWord){
-                        var parameter="?q="+searchWord+"&startIndex=0&maxResults=10";
-                        var service_point="https://www.googleapis.com/books/v1/volumes/"+parameter;
-                        $.get(service_point,function(json)
-                        {
-                            console.log(json);
-                            var resultHTML="";
-                            for(i in json.items){
-                                var booktitle=json.items[i].volumeInfo.title;
-                                var bookid=json.items[i].id;
-                                var cover="";
-                                cover=json.items[i].volumeInfo.imageLinks.smallThumbnail;
-                                resultHTML+='<div class="bookdiv">';
-                                resultHTML+='<img src="'+cover+'" style="float: left"/>';
-                                resultHTML+='<a href="Book_Details.html?id='+bookid+'">'+booktitle+'</a>';
-                                resultHTML+='</div>';;
-                            };
-                            $("#results").html(resultHTML);
-                            $(".bookdiv").css("width","300px");
-                            $(".pagination").css("visibility", "visible");
-                            
-                        });
-                            $("1stPage").attr('href', "Book_Search.html?q="+searchWord+"&maxResults=10");
-                            $("#2ndPage").attr('href', "Book_Search.html?q="+searchWord+"&startIndex=11&maxResults=10");
-                            $("#3rdPage").attr('href', "Book_Search.html?q="+searchWord+"&startIndex=21&maxResults=10");
-                            $("#4thPage").attr('href', "Book_Search.html?q="+searchWord+"&startIndex=31&maxResults=10");
-                            $("#5thPage").attr('href', "Book_Search.html?q="+searchWord+"&startIndex=41&maxResults=10");
-                            $(".pagination").css("visibility", "visible");
-                       
-                    };
-                </script>
-        </div>
-
+            <input id="search" placeholder="Please Search Something...">
+            <button id="button" type="">Search</button>
+            <div id="results"></div>
+            
+            
         <!-- Footer -->
         <footer class="footer">
             <p>This is a project for IT 4403 @ Kennesaw State University created by Gabrielle Hooper</p>
@@ -202,6 +111,9 @@
             }
         </script>
         <!-- End Dropdown Script -->
-        
+
+        <!-- Ajax Script -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>
