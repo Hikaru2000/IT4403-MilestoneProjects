@@ -84,7 +84,7 @@
                 <div class="center">
                     <div class = "pagination">
                         <a href = "#">&laquo</a>
-                        <a id = "1stPage" href = "_blank"> 1 </a>
+                        <a id = "1stPage" > 1 </a>
                         <a id = "2ndPage" > 2 </a>
                         <a id = "3rdPage" > 3 </a>
                         <a id = "4thPage" > 4 </a>
@@ -132,6 +132,7 @@
                     $('#searchbutton').click(function() {
                         var searchWord = $('#searchbox').val();
                         searchBook(searchWord);
+                        $(".pagination").css("visibility", "visible");
                     });;
 
                     function searchBook(searchWord){
