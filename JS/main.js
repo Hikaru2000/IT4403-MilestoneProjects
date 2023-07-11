@@ -142,7 +142,7 @@ function fetchBookshelf() {
 
 $(document).ready(function () {
     $("#searchbutton").click(function () {
-        searchTerms = $("#search").val();
+        searchTerms = $("#searchbox").val();
         currentPage = 1;
         searchBooks();
     });
