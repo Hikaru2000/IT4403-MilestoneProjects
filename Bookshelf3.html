@@ -59,6 +59,12 @@
                 <h1>My Bookshelf</h1>
                 <div id="bookshelf-books"></div>
             </div>
+
+            <div id="bookDetails">
+                <h2 class="center">Book Details</h2>
+                <div id="details"></div>
+                <button id="backBtn">Back to Search Results</button>
+            </div>
         </div>
             
         <script>
@@ -75,7 +81,7 @@
             
                     $.each(data.items, function (i, item) {
                         var book = item.volumeInfo;
-                        var bookHtml = "<div class='book'><a href="Book_Details.html?id='+ item.id +'">";
+                        var bookHtml = "<div class='book'><a href='#' onclick='showDetails(\"" + item.id + "\")'>";
             
                         if (book.imageLinks && book.imageLinks.thumbnail) {
                             bookHtml += "<img src='" + book.imageLinks.thumbnail + "' alt='Book Cover'>";
