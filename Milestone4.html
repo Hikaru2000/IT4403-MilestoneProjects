@@ -9,117 +9,6 @@
         <link rel="stylesheet" href="style.css"/>
   
         <title>Milestone 4</title>
-
-        <!--
-        <style>
-            .sidenav {
-                height: 100%; /* Full Height */
-                width: 200px; /* 200px Width */
-                list-style-type: none; /* No bullets */
-                margin: 0;
-                padding: 0;
-                top: 0; /* Against top of page */
-                left: 0; /* Against far left of page */
-                padding-top: 20px; /* Extra space between words on top */
-                z-index: 1;
-                position: fixed; /* Bar does not move with page */
-                overflow: auto;
-                background-color: #000000;
-
-            }
-
-            .sidenav a, .dropdown-btn {
-                display: block;
-                padding: 6px 8px 6px 16px;
-                text-decoration: none;
-                background: none;
-                color: white;
-                font-size: 20px;
-                display: block;
-                border: none;
-                width: 100%;
-                text-align: left;
-                cursor: pointer;
-                outline: none;
-                font-family: Georgia, 'Times New Roman', Times, serif;
-            }
-
-            /* Link color on hover */
-            .sidenav a:hover, .dropdown-btn:hover {
-                background-color: #ffc629;
-                color: black;
-            }
-
-            /* Button color while active */
-            .active {
-                background-color: #ffc629;
-                color: black;
-            }
-
-            /* Style the dropdown container */
-            .dropdown-container {
-                display: none;
-                background-color:#000000;
-                padding-right: 8px;
-            }
-
-            /* Style the Caret */
-            .fa-caret-down {
-                float: right;
-                padding-right: 8px;
-            }
-
-            /* Some media queries for responsiveness */
-            @media screen and (max-height: 450px) {
-                .sidenav {padding-top: 15px;}
-                .sidenav a {font-size: 18px;}
-            }
-
-            .content {
-                margin-left: 200px;
-                padding-left: 30px;
-            }
-
-            body {
-                font-family: Georgia, 'Times New Roman', Times, serif;
-            }
-
-            /*Creating container for content*/
-            .container {
-                margin-left: 200px;
-                padding-left: 30px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100%;
-            }
-
-            .box {
-            text-align: left;
-            padding: 20px;
-            }
-
-            body {
-                font-family: Georgia, 'Times New Roman', Times, serif;
-            }
-
-            /* Add style to the footer*/
-            footer {
-                background-color: black;
-                color: white;
-                padding: 10px;
-                text-align: center;
-                margin-left: 200px;
-                position: absolute;
-                left: 0;
-                bottom: 0;     
-                width: 100%;
-                height: 60px;
-            }
-
-        </style>
-        -->
-
     </head>
 
     <body>
@@ -147,9 +36,18 @@
                 <a href="Book_Search.html">Book Search</a>
                 <a href="Bookshelf.html">Bookshelf</a>
             </div>
+            <!-- Milestone 3 Dropdown Button -->
+            <button class="dropdown-btn">
+                Milestone 3
+                  <i class="fa fa-caret-down"></i>
+            </button>
+                <!-- Dropdown Container -->
+                <div class="dropdown-container">
+                    <a href="Book_Search3.html">Book Search</a>
+                    <a href="Bookshelf3.html">Bookshelf</a>
+                </div>
             <!-- Unfinished Pages -->
-            <a href="Milestone3.html">Milestone 3</a>
-            <a href="Milestone4.html">Milestone 4</a>
+            <a id="active" href="Milestone4.html">Milestone 4</a>
         </div>
         <!-- End Navigation Bar -->
 
