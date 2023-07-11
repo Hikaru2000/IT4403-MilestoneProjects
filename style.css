@@ -147,9 +147,9 @@
      }
 
      #backBtn {
-          height: 40px;
-          padding: 20px;
-          margin-left: 10px;
+          padding: 5px;
+          margin: 20px;
+          margin-bottom: 40px;
           border: none;
           background-color: blue;
           color: white;
