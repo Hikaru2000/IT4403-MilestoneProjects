@@ -30,6 +30,10 @@
                 height: 60px;
                 font-family: Georgia, 'Times New Roman', Times, serif;
             }
+
+            :target {
+                background-color: #ffc629;
+            }
         </style>
 
         <title>Book Search</title>
@@ -59,7 +63,7 @@
             </button>
                 <!-- Dropdown Container -->
                 <div class="dropdown-container">
-                    <a href="Book_Search.html">Book Search</a>
+                    <a id="active" href="Book_Search.html">Book Search</a>
                     <a href="Bookshelf.html">Bookshelf</a>
                 </div>
             <!-- Unfinished Pages -->
@@ -80,11 +84,11 @@
                 <div class="center">
                     <div class = "pagination">
                         <a href = "#">&laquo</a>
-                        <a id = "1stPage" class = "active" href = "_blank"> 1 </a>
-                        <a id = "2ndPage" target="_blank"> 2 </a>
-                        <a id = "3rdPage" target="_blank"> 3 </a>
-                        <a id = "4thPage" target="_blank"> 4 </a>
-                        <a id = "5thPage" target="_blank"> 5 </a>
+                        <a id = "1stPage" > 1 </a>
+                        <a id = "2ndPage" > 2 </a>
+                        <a id = "3rdPage" > 3 </a>
+                        <a id = "4thPage" > 4 </a>
+                        <a id = "5thPage" > 5 </a>
                         <a href = "#">&raquo</a>
                     </div>
                 </div>    
@@ -96,6 +100,7 @@
                         const q=urlParams.get('q');
                         const startIndex=urlParams.get('startIndex');
                         const MaxResults=urlParams.get('maxResults');
+
                         
                         var urlparameters="?q="+q+"&startIndex="+startIndex+"&maxResults="+MaxResults
                         var service_point="https://www.googleapis.com/books/v1/volumes/"+urlparameters;
@@ -117,22 +122,22 @@
                             $(".bookdiv").css("width","300px");
                         });
                             $("1stPage").attr('href', "Book_Search.html?q="+q+"&maxResults=10");
-                            $("#2ndPage").attr('href', "Book_Search.html?q="+q+"&startIndex=11&maxResults=20");
-                            $("#3rdPage").attr('href', "Book_Search.html?q="+q+"&startIndex=21&maxResults=30");
-                            $("#4thPage").attr('href', "Book_Search.html?q="+q+"&startIndex=31&maxResults=40");
-                            $("#5thPage").attr('href', "Book_Search.html?q="+q+"&startIndex=41&maxResults=50");
+                            $("#2ndPage").attr('href', "Book_Search.html?q="+q+"&startIndex=11&maxResults=10");
+                            $("#3rdPage").attr('href', "Book_Search.html?q="+q+"&startIndex=21&maxResults=10");
+                            $("#4thPage").attr('href', "Book_Search.html?q="+q+"&startIndex=31&maxResults=10");
+                            $("#5thPage").attr('href', "Book_Search.html?q="+q+"&startIndex=41&maxResults=10");
+                            $(".pagination").css("visibility", "visible");
 
                     });
 
                     $('#searchbutton').click(function() {
                         var searchWord = $('#searchbox').val();
                         searchBook(searchWord);
-                        $("header").animate({'margin-top': '5px'}, 1000);
-                        $("searchcontainer").css("visibility", "visible");
+                        $(".pagination").css("visibility", "visible");
                     });;
 
                     function searchBook(searchWord){
-                        var parameter="?q="+searchWord+"&startIndex=0&maxResults=15";
+                        var parameter="?q="+searchWord+"&startIndex=0&maxResults=10";
                         var service_point="https://www.googleapis.com/books/v1/volumes/"+parameter;
                         $.get(service_point,function(json)
                         {
@@ -150,13 +155,15 @@
                             };
                             $("#results").html(resultHTML);
                             $(".bookdiv").css("width","300px");
+                            $(".pagination").css("visibility", "visible");
                             
                         });
-                            $("1stPage").attr('href', "Book_Search.html?q="+q+"&maxResults=10");
-                            $("#2ndPage").attr('href', "Book_Search.html?q="+q+"&startIndex=11&maxResults=20");
-                            $("#3rdPage").attr('href', "Book_Search.html?q="+q+"&startIndex=21&maxResults=30");
-                            $("#4thPage").attr('href', "Book_Search.html?q="+q+"&startIndex=31&maxResults=40");
-                            $("#5thPage").attr('href', "Book_Search.html?q="+q+"&startIndex=41&maxResults=50");
+                            $("1stPage").attr('href', "Book_Search.html?q="+searchWord+"&maxResults=10");
+                            $("#2ndPage").attr('href', "Book_Search.html?q="+searchWord+"&startIndex=11&maxResults=10");
+                            $("#3rdPage").attr('href', "Book_Search.html?q="+searchWord+"&startIndex=21&maxResults=10");
+                            $("#4thPage").attr('href', "Book_Search.html?q="+searchWord+"&startIndex=31&maxResults=10");
+                            $("#5thPage").attr('href', "Book_Search.html?q="+searchWord+"&startIndex=41&maxResults=10");
+                            $(".pagination").css("visibility", "visible");
                        
                     };
                 </script>
