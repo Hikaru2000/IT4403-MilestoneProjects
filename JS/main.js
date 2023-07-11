@@ -1,5 +1,5 @@
 function bookSearch () {
-    var search = document.getElementById('search').value
+    var search = document.getElementById('searchcontainer').value
     document.getElementById('results').innerHTML = ""
     console.log(search)
   
@@ -19,4 +19,4 @@ function bookSearch () {
     });
   }
   
-  document.getElementById('button').addEventListener('click', bookSearch, false)
+  document.getElementById('searchbutton').addEventListener('click', bookSearch, false)
