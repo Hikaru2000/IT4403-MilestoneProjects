@@ -75,7 +75,7 @@
             
                     $.each(data.items, function (i, item) {
                         var book = item.volumeInfo;
-                        var bookHtml = "<div class='book'><a href='#' onclick='Book_Details3.html?id=(\"" + item.id + "\")'>";
+                        var bookHtml = "<div class='book'><a href="Book_Details.html?id='+ item.id +'">";
             
                         if (book.imageLinks && book.imageLinks.thumbnail) {
                             bookHtml += "<img src='" + book.imageLinks.thumbnail + "' alt='Book Cover'>";
