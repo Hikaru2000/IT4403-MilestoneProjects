@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var item, tile, author, publisher, bookLink, bookImg;
+  var item, tile, author, publisher, bookLink, bookImg, currentPage;
   var outputList = document.getElementById("list-output");
   var bookUrl = "https://www.googleapis.com/books/v1/volumes?q=";
   var apiKey = "key=AIzaSyDtXC7kb6a7xKJdm_Le6_BYoY5biz6s8Lw";
@@ -11,6 +11,10 @@ $(document).ready(function() {
     outputList.innerHTML = ""; //empty html output
     document.body.style.backgroundImage = "url('')";
      searchData = $("#search-box").val();
+    $('.pagination').empty();
+    for (let i = 1; i <= 5; i++) {
+      $('.pages').append(`<button${i === currentPage ? ' disabled' : ''} onclick="currentPage = ${i}; $('#search-button').click();">${i}</button>`);
+    }
      //handling empty search input field
      if(searchData === "" || searchData === null) {
        displayError();
