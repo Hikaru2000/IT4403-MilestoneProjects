@@ -83,7 +83,7 @@ $(document).ready(function() {
    */
    function formatOutput(bookImg, title, author, publisher, bookLink, bookIsbn) {
      // console.log(title + ""+ author +" "+ publisher +" "+ bookLink+" "+ bookImg)
-     var viewUrl = 'book.html?isbn='+bookIsbn; //constructing link for bookviewer
+     var viewUrl = "Book_Details3.html?id=" + item.id; //constructing link for bookviewer
      var htmlCard = `<div class="col-lg-6">
        <div class="card" style="">
          <div class="row no-gutters">
@@ -95,7 +95,7 @@ $(document).ready(function() {
                <h5 class="card-title">${title}</h5>
                <p class="card-text">Author: ${author}</p>
                <p class="card-text">Publisher: ${publisher}</p>
-               <a target="_blank" href="${viewUrl}" class="btn btn-secondary">Read Book</a>
+               <a target="_blank" href="${viewUrl}" class="btn btn-secondary"> Book Details </a>
              </div>
            </div>
          </div>
