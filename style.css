@@ -132,8 +132,8 @@
           margin-left: 200px;
      }
 
-     #Search-title {
-          margin-top: 200px;
+     #results {
+          text-align: center;
      }
 
      #header {
@@ -154,6 +154,15 @@
           border-radius: 4px;
           cursor: pointer;
           font-size: 15px;
+     }
+
+     #bookDetails {
+
+     }
+
+     .book {
+          display: inline-block;
+          padding: 10px;
      }
 /* End Book Search */
 
@@ -182,8 +191,11 @@
 /* End Page Selection */
 
 /* Bookshelf */
-     display: inline-block;
-     text-align: center;
+     #bookshelf {
+          display: inline-block;
+          text-align: center;
+     }
+
      
 /* End Bookshelf */
 
