@@ -83,10 +83,31 @@
 
         <!-- Content -->
         <div class = "content" style="margin-left: 200px;">
-            <h1 style="text-align:center"> Bookshelf </h1>
-            <h2>Bookshelf Name: <span id="shelf"></span>
-            </h2>
-            <div id="results" style="display: flex; flex-wrap: wrap;"></div>
+            <script>
+                $(document).ready(function(){
+                            $("#searchResults").html("<h1>My Bookshelf:");
+                            $.getJSON('https://www.googleapis.com/books/v1/users/101017463850449745679/bookshelves/1001/volumes', function (json){
+                                for(i in json.items){
+                                    $("#searchResults").append("<img class='bookThumb' id='"+json.items[i].id+"' src='"+json.items[i].volumeInfo.imageLinks.smallThumbnail+"'/>");
+                                };
+                                $(".bookThumb").click(function(){
+                                    getBookInfo($(this).attr("id"));
+                                });
+                    });
+                    function getBookInfo(id){
+                        var url = 'https://www.googleapis.com/books/v1/volumes/' + id
+                        $.getJSON(url, function(json){
+                            $("#info1").html("<h1> Title: "+json.volumeInfo.title+"<br>Subtitle: "+json.volumeInfo.subtitle+"<br>Authors: "+json.volumeInfo.authors+"<br></h1><p>Publisher: "
+                    		    +json.volumeInfo.publisher+"<br>Published date: "+json.volumeInfo.publishedDate+"<br>Number of pages: "+json.volumeInfo.pageCount+"<br></p>"+json.volumeInfo.description+"<br>Categories: "+json.volumeInfo.categories+"<br>Average rating: "
+                    		    +json.volumeInfo.averageRating+"<br>Number of reviews: "+json.volumeInfo.ratingsCount+"<br> Maturity Rating: "+json.volumeInfo.maturityRating+"<br>Language: "+json.volumeInfo.language+"<br>"+json.saleInfo.saleability+"<br></p>"
+                    		);
+                    		$("#thumbnail").attr('src',json.volumeInfo.imageLinks.thumbnail);
+                    		$("#prelink").attr('href', json.volumeInfo.previewLink);
+                    		$("#infolink").attr('href', json.volumeInfo.infoLink);
+                        });
+                    }
+                });
+            </script> 
         </div>
         <!-- End Content -->
 
