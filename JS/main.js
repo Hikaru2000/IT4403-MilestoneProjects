@@ -1,42 +1,164 @@
-$(document).ready(function(){
-    var service_point="https://www.googleapis.com/books/v1/volumes/?q=";
-    $("#search_button").click(function(){
-        var url=service_point+$("#search_bar").val();
-        bookSearch(url);
-        $("#pages").html("");
-        for (i=1;i<=5;i++){
-            $("#pages").append("<a class='page' href='#'>"+i+"</a>");
+var searchTerms = "";
+var currentPage = 1;
+var userId = "101017463850449745679";
+var apiURL = "https://www.googleapis.com/books/v1/users/";
+
+function searchBooks() {
+    var url = "https://www.googleapis.com/books/v1/volumes?q=" + searchTerms + "&startIndex=" + ((currentPage - 1) * 10) + "&maxResults=10";
+
+    $.getJSON(url, function (data) {
+        $("#books").empty();
+
+        if (data.totalItems === 0) {
+          $("#books").text("No results found.");
+          $("#pagination").empty();
+          return;
         }
-    });
-    $("#pages").on('click',function (event) {
-        var x = event.target.textContent;
-        var pages= document.getElementsByClassName("page");
-        var url=service_point+$("#search_bar").val()+"&startIndex="+(x-1)*10;
-        bookSearch(url);
-    });
-});
- 
-function bookSearch(serviceURL){
-    $.getJSON(serviceURL, function (json){
-        $("#searchResults").html("<h1>Search Results:</h1><br>")
-        for(i in json.items){
-            $("#searchResults").append("<img class='bookThumb' id='"+json.items[i].id+"' src='"+json.items[i].volumeInfo.imageLinks.smallThumbnail+"'/>");
-        };
-        $(".bookThumb").click(function(){
-            getBookInfo($(this).attr("id"));
+
+        var totalPages = Math.ceil(data.totalItems / 10);
+        var displayPages = 5;
+        var startPage = currentPage - Math.floor(displayPages / 2);
+        startPage = Math.max(startPage, 1);
+        var endPage = startPage + displayPages - 1;
+        endPage = Math.min(endPage, totalPages);
+
+        // Render pagination
+        var paginationHtml = "<div class='pagination'>";
+        if (startPage !== 1) {
+          paginationHtml += "<a href='#' onclick='changePage(" + (startPage - 1) + ")'>Previous</a>";
+        }
+        
+        for (var i = startPage; i <= endPage; i++) {
+            if (i === currentPage) {
+                paginationHtml += "<a class='active' href='#'>" + i + "</a>";
+            } else {
+                paginationHtml += "<a href='#' onclick='changePage(" + i + ")'>" + i + "</a>";
+            }
+        }
+        
+        if (endPage !== totalPages) {
+          paginationHtml += "<a href='#' onclick='changePage(" + (endPage + 1) + ")'>Next</a>";
+        }
+        paginationHtml += "</div>";
+        $("#pagination").html(paginationHtml);
+
+        // Render books
+        $.each(data.items, function (i, item) {
+            var book = item.volumeInfo;
+            var bookHtml = "<div class='book'><a href='#' onclick='showDetails(\"" + item.id + "\")'>";
+
+            if (book.imageLinks && book.imageLinks.thumbnail) {
+                bookHtml += "<img src='" + book.imageLinks.thumbnail + "' alt='Book Cover'>";
+            }
+
+            bookHtml += "<div class='book-title'>" + book.title + "</div></a></div>";
+
+            $("#books").append(bookHtml);
         });
     });
-    function getBookInfo(id){
-        var url = 'https://www.googleapis.com/books/v1/volumes/' + id
-        $.getJSON(url, function(json){
-            $("#info1").html("<h1> Title: "+json.volumeInfo.title+"<br>Subtitle: "+json.volumeInfo.subtitle+"<br>Authors: "+json.volumeInfo.authors+"<br></h1><p>Publisher: "
-    		      +json.volumeInfo.publisher+"<br>Published date: "+json.volumeInfo.publishedDate+"<br>Number of pages: "+json.volumeInfo.pageCount+"<br></p>"+json.volumeInfo.description+"<br>Categories: "+json.volumeInfo.categories+"<br>Average rating: "
-    		      +json.volumeInfo.averageRating+"<br>Number of reviews: "+json.volumeInfo.ratingsCount+"<br> Maturity Rating: "+json.volumeInfo.maturityRating+"<br>Language: "+json.volumeInfo.language+"<br>"+json.saleInfo.saleability+"<br></p>"
-    		    );
-    		    $("#thumbnail").attr('src',json.volumeInfo.imageLinks.thumbnail);
-    		    $("#prelink").attr('href', json.volumeInfo.previewLink);
-    		    $("#infolink").attr('href', json.volumeInfo.infoLink);
-        });
-    }
 }
 
+function changePage(page) {
+    currentPage = page;
+    searchBooks();
+}
+
+
+function showDetails(bookId) {
+    var url = "https://www.googleapis.com/books/v1/volumes/" + bookId;
+
+    $.getJSON(url, function (data) {
+        var book = data.volumeInfo;
+    
+        var detailsHtml = "<h3>" + book.title + "</h3>";
+    
+        if (book.authors) {
+            detailsHtml += "<p><strong>Authors:</strong> " + book.authors.join(", ") + "</p>";
+        }
+    
+        if (book.description) {
+            detailsHtml += "<p><strong>Description:</strong> " + book.description + "</p>";
+        }
+    
+        if (book.categories) {
+            detailsHtml += "<p><strong>Categories:</strong> " + book.categories.join(", ") + "</p>";
+        }
+            
+        if (book.publisher) {
+            detailsHtml += "<p><strong>Publisher:</strong> " + book.publisher + "</p>";
+        }
+    
+        if (book.publishedDate) {
+            detailsHtml += "<p><strong>Published Date:</strong> " + book.publishedDate + "</p>";
+        }
+    
+        if (book.pageCount) {
+          detailsHtml += "<p><strong>Page Count:</strong> " + book.pageCount + "</p>";
+        }
+    
+        if (book.imageLinks && book.imageLinks.thumbnail) {
+            detailsHtml += "<img src='" + book.imageLinks.thumbnail + "' alt='Book Cover'>";
+        }
+    
+        $("#details").html(detailsHtml);
+    
+        // Hide search results and show book details
+        $("#results").hide();
+        $("#bookDetails").show();
+    });
+}
+
+function showSearchResults() {
+    // Show search results and hide book details
+    $("#bookDetails").hide();
+    $("#results").show();
+}
+
+function fetchBookshelf() {
+    var url = apiURL + userId + "/bookshelves/0/volumes";
+
+    $.getJSON(url, function (data) {
+        $("#bookshelf-books").empty();
+
+        if (data.totalItems === 0) {
+            $("#bookshelf-books").text("No books found in the bookshelf.");
+            return;
+        }
+
+        $.each(data.items, function (i, item) {
+            var book = item.volumeInfo;
+            var bookHtml = "<div class='book'><a href='#' onclick='showDetails(\"" + item.id + "\")'>";
+
+            if (book.imageLinks && book.imageLinks.thumbnail) {
+                bookHtml += "<img src='" + book.imageLinks.thumbnail + "' alt='Book Cover'>";
+            }
+
+            bookHtml += "<div class='book-title'>" + book.title + "</div></a></div>";
+
+            $("#bookshelf-books").append(bookHtml);
+        });
+    });
+}
+
+$(document).ready(function () {
+    $("#searchBtn").click(function () {
+        searchTerms = $("#search").val();
+        currentPage = 1;
+        searchBooks();
+    });
+
+    $("#backBtn").click(function () {
+        showSearchResults();
+    });
+
+    // Add hover effect to book images
+    $(document).on("mouseenter", ".book img", function () {
+        $(this).css("opacity", "0.7");
+    });
+
+    $(document).on("mouseleave", ".book img", function () {
+        $(this).css("opacity", "1");
+    });
+
+    fetchBookshelf();
+});
