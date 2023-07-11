@@ -115,7 +115,7 @@ function showSearchResults() {
 }
 
 function fetchBookshelf() {
-    var url = apiURL + userId + "/bookshelves/0/volumes";
+    var url = apiURL + userId + "/bookshelves/1001/volumes";
 
     $.getJSON(url, function (data) {
         $("#bookshelf-books").empty();
