@@ -134,6 +134,8 @@
 
      #results {
           text-align: center;
+          margin-left: 25px;
+          margin-right: 25px;
      }
 
      #header {
@@ -144,9 +146,9 @@
           margin-top: 50px;
      }
 
-     #backbtn {
+     #backBtn {
           height: 40px;
-          padding: 0 20px;
+          padding: 20px;
           margin-left: 10px;
           border: none;
           background-color: blue;
@@ -157,7 +159,7 @@
      }
 
      #bookDetails {
-
+          text-align:center;
      }
 
      .book {
