@@ -57,7 +57,7 @@
         <!-- Content -->
         <div class = "content">
             <div id="bookshelf">
-                <h2>My Bookshelf</h2>
+                <h1>My Bookshelf</h1>
                 <div id="bookshelf-books"></div>
             </div>
         </div>
@@ -76,7 +76,7 @@
             
                     $.each(data.items, function (i, item) {
                         var book = item.volumeInfo;
-                        var bookHtml = "<div class='book'><a href='#' onclick='showDetails(\"" + item.id + "\")'>";
+                        var bookHtml = "<div class='book'><a href='#' onclick='Book_Details.html?id=(\"" + item.id + "\")'>";
             
                         if (book.imageLinks && book.imageLinks.thumbnail) {
                             bookHtml += "<img src='" + book.imageLinks.thumbnail + "' alt='Book Cover'>";
