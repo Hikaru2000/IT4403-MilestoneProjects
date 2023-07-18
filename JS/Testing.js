@@ -153,18 +153,18 @@ function fetchBookshelf() {
                 	$("#bookshelf-books").text("No books found in the bookshelf.");
                         return;
                 }
-	}
+	});
     
         $("#bookshelf-books").html();
             var booksMustc =' '+'<img class="bookThumb" id="{{id}}" src="{{volumeInfo.imageLinks.smallThumbnail}}"/>';
             $.getJSON('https://www.googleapis.com/books/v1/users/101017463850449745679/bookshelves/1001/volumes', function (json){
-            for(i in json.items){
-            $("#bookshelf-books").append(Mustache.render(booksMustc, json.items[i]));
-            };
-        $(".bookThumb").click(function(){
-            showDetails($(this).attr("id"));
-        });
-       });
+	        for(i in json.items){
+	            $("#bookshelf-books").append(Mustache.render(booksMustc, json.items[i]));
+		};
+	        $(".bookThumb").click(function(){
+	            showDetails($(this).attr("id"));
+	        });
+	    });
 
 	function getBookInfo(id){
       		var url = 'https://www.googleapis.com/books/v1/volumes/' + id;
