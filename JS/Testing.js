@@ -111,7 +111,7 @@ function showDetails(bookId) {
       $.getJSON(url, function(json){
       $("#details").html("");
       var newInfo=Mustache.render(BookinfoTemp,json);
-      $("#details").html(detailsHtml);
+      $("#details").html(newInfo);
     
         // Hide search results and show book details
         $("#results").hide();
@@ -142,7 +142,7 @@ function fetchBookshelf() {
 	});
     
         $("#bookshelf-books").html();
-            var booksMustc =' '+'<img class="bookThumb" id="{{id}}" src="{{volumeInfo.imageLinks.smallThumbnail}}"/>';
+            var booksMustc =' '+'<img class="bookThumb" id="{{id}}" src="{{volumeInfo.imageLinks.smallThumbnail}}"/>' + '<h1> Title: {{volumeInfo.title}} </h1>';
             $.getJSON('https://www.googleapis.com/books/v1/users/101017463850449745679/bookshelves/1001/volumes', function (json){
 	        for(i in json.items){
 	            $("#bookshelf-books").append(Mustache.render(booksMustc, json.items[i]));
