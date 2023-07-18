@@ -94,7 +94,19 @@
 
 
 /* Book Search */
+     #header {
+          font-family:Georgia, 'Times New Roman', Times, serif;
+          font-size: 3rem;
+          margin:auto;
+          text-align: center;
+          margin-top: 50px;
+     }
 
+     /*#search {
+          display: flex;
+          align-items: center;
+          margin-bottom: 20px;
+     }*/
 
      #searchbox {
           flex: 1;
@@ -106,7 +118,7 @@
      }
 
      #searchbutton {
-          height: 40px;
+          height: 35px;
           padding: 0 20px;
           margin-left: 10px;
           border: none;
@@ -124,6 +136,21 @@
           padding: 20px;
      }
 
+     #list_View-btn {
+          height: 35px;
+          padding: 0 20px;
+          border: none;
+          background-color: #000000;
+          color: white;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 15px
+     }
+
+     #grid_View-btn {
+
+     }
+
      .container {
           font-family:Georgia, 'Times New Roman', Times, serif;
           margin-left: 200px;
@@ -136,13 +163,7 @@
           margin-bottom: 25px;
      }
 
-     #header {
-          font-family:Georgia, 'Times New Roman', Times, serif;
-          font-size: 3rem;
-          margin:auto;
-          text-align: center;
-          margin-top: 50px;
-     }
+
 
      #backBtn {
           padding: 5px;
