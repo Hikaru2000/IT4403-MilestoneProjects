@@ -166,9 +166,10 @@
      }
 
      #backBtn {
-          padding: 5px;
-          margin: 15px;
+          padding: 10px;
+          margin: 10px;
           margin-bottom: 40px;
+          margin-left: auto;
           border: none;
           background-color: #000000;
           color: white;
