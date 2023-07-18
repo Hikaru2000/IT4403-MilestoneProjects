@@ -162,7 +162,16 @@ function fetchBookshelf() {
       			var newInfo=Mustache.render(BookinfoTemp,json);
       			$("#details").html(newInfo);
       		});
-      	}		
+      	}
+
+	// Add hover effect to book images
+    	$(document).on("mouseenter", ".book img", function () {
+        	$(this).css("opacity", "0.7");
+    	});
+
+    	$(document).on("mouseleave", ".book img", function () {
+        	$(this).css("opacity", "1");
+    	});
 }
 
 
