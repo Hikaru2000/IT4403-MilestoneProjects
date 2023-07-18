@@ -24,17 +24,16 @@ $(document).ready(function () {
         $(this).css("opacity", "1");
     });
 
-    $("#list_View-btn").click(function () {
-    	$("#books").addClass("list-view");
-	$("#books").removeClass("grid-view");
-	searchBooks();
-    });
-
-    $("#grid_View-btn").click(function () {
-    	$("#books").addClass("grid-view");
-        $("#books").removeClass("list-view");
-        searchBooks();
-    });
+	$(function(){
+		$("#grid_View-btn").click(function(){
+			$("#results").css("width","34%");
+		        $("#results").attr("data-layout","Grid");
+	    	});
+	   	$("#list_View-btn").click(function(){
+		        $("#searchResults").css("width","99%");
+		        $("#searchResults").attr("data-layout","List");
+	    	});
+	});
 
     fetchBookshelf();
 });
