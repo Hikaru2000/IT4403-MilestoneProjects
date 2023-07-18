@@ -102,12 +102,6 @@
           margin-top: 50px;
      }
 
-     /*#search {
-          display: flex;
-          align-items: center;
-          margin-bottom: 20px;
-     }*/
-
      #searchbox {
           flex: 1;
           height: 40px;
@@ -171,14 +165,12 @@
           margin-bottom: 25px;
      }
 
-
-
      #backBtn {
           padding: 5px;
-          margin: 20px;
+          margin: 15px;
           margin-bottom: 40px;
           border: none;
-          background-color: blue;
+          background-color: #000000;
           color: white;
           border-radius: 4px;
           cursor: pointer;
