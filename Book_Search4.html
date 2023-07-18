@@ -1,1 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Metadata -->
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="theme-color" content="#000000"/>
 
+        <!-- Icon Image Link -->
+        <link rel="icon" type="image/png" href="favicon.png"/>
+
+        <!-- CSS Style Sheet -->
+        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+       
+        <style>
+            .footer {
+                position: fixed;
+                margin: auto;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background-color: black;
+                color: white;
+                text-align: center;
+                height: 60px;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+            }
+        </style>
+
+        <title>Book Search</title>
+
+    </head>
+
+    <body>
+        
+    <!-- Navigation Bar -->
+    <div class = "sidenav"> 
+        <a id="active" href="index.html"> Home </a>
+        <!-- Milestone 1 Dropdown Button -->
+        <button class="dropdown-btn">
+          Milestone 1 
+          <i class="fa fa-caret-down"></i>
+        </button>
+          <!-- Dropdown Container -->
+          <div class="dropdown-container">
+            <a href="Single_Book.html">Single Book</a>
+            <a href="Search_Page.html">Search Page</a>
+          </div>
+        <!-- Milestone 2 Dropdown Button -->
+        <button class="dropdown-btn">
+          Milestone 2
+          <i class="fa fa-caret-down"></i>
+        </button>
+          <!-- Dropdown Container -->
+          <div class="dropdown-container">
+            <a href="Book_Search.html">Book Search</a>
+            <a href="Bookshelf.html">Bookshelf</a>
+          </div>
+        <!-- Milestone 3 Dropdown Button -->
+        <button class="dropdown-btn">
+            Milestone 3
+            <i class="fa fa-caret-down"></i>
+        </button>
+            <!-- Dropdown Container -->
+            <div class="dropdown-container">
+                <a href="Book_Search3.html">Book Search</a>
+                <a href="Bookshelf3.html"> Bookshelf </a>
+            </div>
+        <!-- Milestone 4 Dropdown Button -->
+        <button class="dropdown-btn">
+            Milestone 4
+            <i class="fa fa-caret-down"></i>
+        </button>
+            <!-- Dropdown Container -->
+            <div class="dropdown-container">
+              <a href="Book_Search4.html"> Book Search </a>
+              <a href="Bookshelf4.html"> Bookshelf </a>
+            </div>
+    </div>
+    <!-- End Navigation Bar -->
+
+        <!-- Content -->
+        <div class="content">
+            <h1 id="header">Book Search</h1>
+            
+            <div id="searchcontainer">
+                <input type="text" id="searchbox" placeholder="Search books...">
+                <button id="searchbutton">Search</button>
+            </div>
+            
+            <div id="results">
+                <h2>Search Results</h2>
+                <div id="pagination" class="center"></div>
+                <div id="books"></div>
+            </div>
+            
+            <div id="bookDetails" style="display:none;">
+                <h2 class="center">Book Details</h2>
+                <div id="details"></div>
+                <button id="backBtn">Back to Search</button>
+            </div>
+        </div>
+
+ 
+        <!-- Footer -->
+        <footer class="footer">
+            <p>This is a project for IT 4403 @ Kennesaw State University created by Gabrielle Hooper</p>
+        </footer>
+
+
+        <!-- Dropdown Script -->
+        <script>    
+            var dropdown = document.getElementsByClassName("dropdown-btn");
+            var i;
+                    
+            for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+                } else {
+                dropdownContent.style.display = "block";
+                }
+            });
+            }
+        </script>
+        <!-- End Dropdown Script -->
+
+        
+
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <script src="JS/main.js"></script>
+    </body>
+</html>
