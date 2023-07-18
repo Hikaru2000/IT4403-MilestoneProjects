@@ -1,1 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="theme-color" content="#000000"/>
+        <link rel="icon" type="image/png" href="favicon.png"/>
+        <link rel="stylesheet" href="style.css"/>
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  
+        <title>Bookshelf</title>
 
+    </head>
+
+    <body>
+
+        <!-- Navigation Bar -->
+        <div class = "sidenav"> 
+            <a href="index.html"> Home </a>
+            <!-- Milestone 1 Dropdown Button -->
+            <button class="dropdown-btn">
+            Milestone 1 
+            <i class="fa fa-caret-down"></i>
+            </button>
+            <!-- Dropdown Container -->
+            <div class="dropdown-container">
+                <a href="Single_Book.html">Single Book</a>
+                <a href="Search_Page.html">Search Page</a>
+            </div>
+            <!-- Milestone 2 Dropdown Button -->
+            <button class="dropdown-btn">
+            Milestone 2
+            <i class="fa fa-caret-down"></i>
+            </button>
+            <!-- Dropdown Container -->
+            <div class="dropdown-container">
+                <a href="Book_Search.html">Book Search</a>
+                <a href="Bookshelf.html">Bookshelf</a>
+            </div>
+            <!-- Milestone 3 Dropdown Button -->
+            <button class="dropdown-btn">
+                Milestone 3
+                  <i class="fa fa-caret-down"></i>
+            </button>
+                <!-- Dropdown Container -->
+                <div class="dropdown-container">
+                    <a href="Book_Search3.html">Book Search</a>
+                    <a id="active" href="Bookshelf3.html">Bookshelf</a>
+                </div>
+            <!-- Unfinished Pages -->
+            <a href="Milestone4.html">Milestone 4</a>
+        </div>
+        <!-- End Navigation Bar -->
+
+        
+        <!-- Content -->
+        <div class = "content">
+            <div id="bookshelf">
+                <h1>My Bookshelf</h1>
+                <div id="bookshelf-books"></div>
+            </div>
+
+            <div id="bookDetails" style="display:none;">
+                <h2 class="center">Book Details</h2>
+                <div id="details"></div>
+                <button id="backBtn">Back to Bookshelf</button>
+            </div>
+        </div>
+            
+        <script>
+            function fetchBookshelf() {
+                var url = apiURL + userId + "/bookshelves/1001/volumes";
+            
+                $.getJSON(url, function (data) {
+                    $("#bookshelf-books").empty();
+            
+                    if (data.totalItems === 0) {
+                        $("#bookshelf-books").text("No books found in the bookshelf.");
+                        return;
+                    }
+            
+                    $.each(data.items, function (i, item) {
+                        var book = item.volumeInfo;
+                        var bookHtml = "<div class='book'><a href='#' onclick='showDetails(\"" + item.id + "\")'>";
+            
+                        if (book.imageLinks && book.imageLinks.thumbnail) {
+                            bookHtml += "<img src='" + book.imageLinks.thumbnail + "' alt='Book Cover'>";
+                        }
+            
+                        bookHtml += "<div class='book-title'>" + book.title + "</div></a></div>";
+            
+                        $("#bookshelf-books").append(bookHtml);
+                    });
+                });
+            }
+            
+            $(document).ready(function () {
+                $("#searchBtn").click(function () {
+                    searchTerms = $("#search").val();
+                    currentPage = 1;
+                    searchBooks();
+                });
+            
+                $("#backBtn").click(function () {
+                    showSearchResults();
+                });
+            
+                // Add hover effect to book images
+                $(document).on("mouseenter", ".book img", function () {
+                    $(this).css("opacity", "0.7");
+                });
+            
+                $(document).on("mouseleave", ".book img", function () {
+                    $(this).css("opacity", "1");
+                });
+            
+                fetchBookshelf();
+            });
+        </script> 
+        <!-- End Content -->
+
+        <!-- Footer -->
+        <footer>
+            <p>This is a project for IT 4403 @ Kennesaw State University created by Gabrielle Hooper</p>
+        </footer>
+
+
+        <!-- Dropdown Script -->
+        <script>    
+            var dropdown = document.getElementsByClassName("dropdown-btn");
+            var i;
+                    
+            for (i = 0; i < dropdown.length; i++) {
+                dropdown[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var dropdownContent = this.nextElementSibling;
+                    if (dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+                    } else {
+                    dropdownContent.style.display = "block";
+                    }
+                });
+            }
+        </script>
+        <!-- End Dropdown Script -->
+        
+        <script src="JS/main.js"></script>
+    </body>
+</html>
