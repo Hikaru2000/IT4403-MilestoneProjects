@@ -144,29 +144,39 @@ function showSearchResults() {
 
 /* Bookshelf JS */
 function fetchBookshelf() {
-    var url = apiURL + userId + "/bookshelves/1001/volumes";
-
-    $.getJSON(url, function (data) {
-        $("#bookshelf-books").empty();
-
-        if (data.totalItems === 0) {
-            $("#bookshelf-books").text("No books found in the bookshelf.");
-            return;
-        }
-
-        $.each(data.items, function (i, item) {
-            var book = item.volumeInfo;
-            var bookHtml = "<div class='book'><a href='#' onclick='showDetails(\"" + item.id + "\")'>";
-
-            if (book.imageLinks && book.imageLinks.thumbnail) {
-                bookHtml += "<img src='" + book.imageLinks.thumbnail + "' alt='Book Cover'>";
-            }
-
-            bookHtml += "<div class='book-title'>" + book.title + "</div></a></div>";
-
-            $("#bookshelf-books").append(bookHtml);
+      	var url = apiURL + userId + "/bookshelves/1001/volumes";
+	
+	$.getJSON(url, function (data) {
+        	$("#bookshelf-books").empty();
+            
+                if (data.totalItems === 0) {
+                	$("#bookshelf-books").text("No books found in the bookshelf.");
+                        return;
+                }
+	}
+    
+        $("#bookshelf-books").html();
+            var booksMustc =' '+'<img class="bookThumb" id="{{id}}" src="{{volumeInfo.imageLinks.smallThumbnail}}"/>';
+            $.getJSON('https://www.googleapis.com/books/v1/users/101017463850449745679/bookshelves/1001/volumes', function (json){
+            for(i in json.items){
+            $("#bookshelf-books").append(Mustache.render(booksMustc, json.items[i]));
+            };
+        $(".bookThumb").click(function(){
+            showDetails($(this).attr("id"));
         });
-    });
+       });
+
+	function getBookInfo(id){
+      		var url = 'https://www.googleapis.com/books/v1/volumes/' + id;
+      		var BookinfoTemp= '<img width="200" height="200" src="{{volumeInfo.imageLinks.smallThumbnail}}/>"'+'<br><h1> Title: {{volumeInfo.title}}'+'<br>Subtitle: {{volumeInfo.subtitle}}'+'<br>Authors: {{volumeInfo.authors}}'+'<br></h1><p>Publisher: {{volumeInfo.publisher}}'
+		+'<br>Published date: {{volumeInfo.publishedDate}}'+'<br>Number of pages: {{volumeInfo.pageCount}} '+'<br></p>Description: "{{volumeInfo.description}}"'+'<br>Categories: {{volumeInfo.categories}}'+'<br>Average rating: {{volumeInfo.averageRating}}'
+		+'<br>Number of reviews: {{volumeInfo.ratingsCount}}'+'<br> Maturity Rating: {{volumeInfo.maturityRating}}'+'<br>Language: {{volumeInfo.language}} '+'<br>Sale Info: {{saleInfo.saleability}}'+'<br></p>';
+      		$.getJSON(url, function(json){
+      			$("#info1").html("");
+      			var newInfo=Mustache.render(BookinfoTemp,json);
+      			$("#info1").html(newInfo);
+      		});
+      	}		
 }
 
 
