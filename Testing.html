@@ -10,155 +10,92 @@
         <link rel="icon" type="image/png" href="favicon.png"/>
 
         <!-- CSS Style Sheet -->
-        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="CSS/Milestone-4.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-        <!-- Script Links -->
-        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
-       
-        <style>
-            .footer {
-                position: fixed;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                background-color: black;
-                color: white;
-                text-align: center;
-                height: 60px;
-                font-family: Georgia, 'Times New Roman', Times, serif;
-            }
-
-            .pagination {
-                text-align: center;
-            }
-        </style>
-
+        <!-- Javascript Sheets -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.0/mustache.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+        
         <title>Book Search</title>
 
     </head>
 
     <body>
         
-        <!-- Navigation Bar -->
-        
-        <div class = "sidenav"> 
-            <a href="index.html"> Home </a>
-            <!-- Milestone 1 Dropdown Button -->
-            <button class="dropdown-btn">
-                Milestone 1 
-                <i class="fa fa-caret-down"></i>
-            </button>
-                <!-- Dropdown Container -->
-                <div class="dropdown-container">
-                    <a href="Single_Book.html">Single Book</a>
-                    <a href="Search_Page.html">Search Page</a>
-                </div>
-            <!-- Milestone 2 Dropdown Button -->
-            <button class="dropdown-btn">
-                Milestone 2
-                <i class="fa fa-caret-down"></i>
-            </button>
-                <!-- Dropdown Container -->
-                <div class="dropdown-container">
-                    <a href="Book_Search.html">Book Search</a>
-                    <a href="Bookshelf.html">Bookshelf</a>
-                </div>
-            <!-- Unfinished Pages -->
-            <a href="Milestone3.html">Milestone 3</a>
-            <a href="Milestone4.html">Milestone 4</a>
-            <a href="Testing.html"> Test </a>
-        </div>
-        <!-- End Navigation Bar -->
+    <!-- Navigation Bar -->
+    <div class = "sidenav"> 
+        <a href="index.html"> Home </a>
+        <!-- Milestone 1 Dropdown Button -->
+        <button class="dropdown-btn">
+          Milestone 1 
+          <i class="fa fa-caret-down"></i>
+        </button>
+          <!-- Dropdown Container -->
+          <div class="dropdown-container">
+            <a href="Single_Book.html">Single Book</a>
+            <a href="Search_Page.html">Search Page</a>
+          </div>
+        <!-- Milestone 2 Dropdown Button -->
+        <button class="dropdown-btn">
+          Milestone 2
+          <i class="fa fa-caret-down"></i>
+        </button>
+          <!-- Dropdown Container -->
+          <div class="dropdown-container">
+            <a href="Book_Search.html">Book Search</a>
+            <a href="Bookshelf.html">Bookshelf</a>
+          </div>
+        <!-- Milestone 3 Dropdown Button -->
+        <button class="dropdown-btn">
+            Milestone 3
+            <i class="fa fa-caret-down"></i>
+        </button>
+            <!-- Dropdown Container -->
+            <div class="dropdown-container">
+                <a href="Book_Search3.html">Book Search</a>
+                <a href="Bookshelf3.html"> Bookshelf </a>
+            </div>
+        <!-- Milestone 4 Dropdown Button -->
+        <button class="dropdown-btn">
+            Milestone 4
+            <i class="fa fa-caret-down"></i>
+        </button>
+            <!-- Dropdown Container -->
+            <div class="dropdown-container">
+              <a id="active" href="Book_Search4.html"> Book Search </a>
+              <a href="Bookshelf4.html"> Bookshelf </a>
+            </div>
+    </div>
+    <!-- End Navigation Bar -->
 
         <!-- Content -->
-        <div class = "content">
-            <h1 id="header">Search Google Books</h1>
+        <div class="content">
+            <h1 id="header">Book Search</h1>
+            
             <div id="searchcontainer">
-                <input type="text" id="searchbox" placeholder="Please Search Something" required>
-                <button type="submit" id="searchbutton">Search</button>
+                <input type="text" id="searchbox" placeholder="Search books...">
+                <button id="searchbutton"> Search </button>
+                <button id="list_View-btn"> List View </button>
+                <button id="grid_View-btn"> Grid View </button>
             </div>
-            <div id="results" style="display: flex; flex-wrap: wrap; padding: 20px;"></div>
-                <div class = "pagination">
-                    <a id = "1stPage" target="_blank" class="active"> 1 </a>
-                    <a id = "2ndPage" target="_blank"> 2 </a>
-                    <a id = "3rdPage" target="_blank"> 3 </a>
-                </div>    
-                <script>
-                    $(function() {
-                        const queryString = window.location.search;
-                        console.log(queryString);
-                        const urlParams = new URLSearchParams(queryString);
-                        const q=urlParams.get('q');
-                        const startIndex=urlParams.get('startIndex');
-                        const MaxResults=urlParams.get('maxResults');
-                        
-                        var urlparameters="?q="+q+"&startIndex="+startIndex+"&maxResults="+MaxResults
-                        var service_point="https://www.googleapis.com/books/v1/volumes/"+urlparameters;
-                        $.get(service_point,function(json){
-                            console.log(json);
-                            var resultHTML="";
-                            for(i in json.items){
-                                var booktitle=json.items[i].volumeInfo.title;
-                                var bookid=json.items[i].id;
-                                var cover="";
-                                cover=json.items[i].volumeInfo.imageLinks.smallThumbnail;
-                                resultHTML+='<div class="bookdiv">';
-                                resultHTML+='<img src="'+cover+'" style="float: left"/>';
-                                resultHTML+='<a href="Book_Details.html?id='+bookid+'">'+booktitle+'</a>';
-                                resultHTML+='</div>';;
-                            };
-
-                            $("#results").html(resultHTML);
-                            $(".bookdiv").css("width","300px");
-                        });
-
-                            $("#1stPage").attr('href', "Book_Search.html?q="+q+"&startIndex=0&maxResults=15");
-                            $("#2ndPage").attr('href', "Book_Search.html?q="+q+"&startIndex=15&maxResults=30");
-                            $("#3rdPage").attr('href', "Book_Search.html?q="+q+"&startIndex=30&maxResults=40");
-
-                    });
-
-                    $('#searchbutton').click(function() {
-                        var searchWord = $('#searchbox').val();
-                        searchBook(searchWord);
-                        $("header").animate({'margin-top': '5px'}, 1000);
-                        $("searchcontainer").css("visibility", "visible");
-                    });;
-
-                    function searchBook(searchWord){
-                        var parameter="?q="+searchWord+"&startIndex=0&maxResults=15";
-                        var service_point="https://www.googleapis.com/books/v1/volumes/"+parameter;
-                        $.get(service_point,function(json)
-                        {
-                            console.log(json);
-                            var resultHTML="";
-                            for(i in json.items){
-                                var booktitle=json.items[i].volumeInfo.title;
-                                var bookid=json.items[i].id;
-                                var cover="";
-                                cover=json.items[i].volumeInfo.imageLinks.smallThumbnail;
-                                resultHTML+='<div class="bookdiv">';
-                                resultHTML+='<img src="'+cover+'" style="float: left"/>';
-                                resultHTML+='<a href="Book_Details.html?id='+bookid+'">'+booktitle+'</a>';
-                                resultHTML+='</div>';;
-                            };
-                            $("#results").html(resultHTML);
-                            $(".bookdiv").css("width","300px");
-                            
-                        });
-
-                            $("#1stPage").attr('href', "Book_Search.html?q="+searchWord+"&startIndex=0&maxResults=15");
-                            $("#2ndPage").attr('href', "Book_Search.html?q="+searchWord+"&startIndex=15&maxResults=30");
-                            $("#3rdPage").attr('href', "Book_Search.html?q="+searchWord+"&startIndex=30&maxResults=40");
-                       
-                    };
-                </script>
+            
+            <div id="results">
+                <h2>Search Results</h2>
+                <div id="pagination" class="center"></div>
+                <div id="books"></div>
+            </div>
+            
+            <div id="bookDetails" style="display:none;">
+                <h2 class="center">Book Details</h2>
+                <div id="details"></div>
+                <button id="backBtn">Back to Search</button>
+            </div>
         </div>
 
+ 
         <!-- Footer -->
-        <footer>
+        <footer class="footer">
             <p>This is a project for IT 4403 @ Kennesaw State University created by Gabrielle Hooper</p>
         </footer>
 
@@ -181,6 +118,15 @@
             }
         </script>
         <!-- End Dropdown Script -->
+
         
+
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="JS/Testing.js"></script>
     </body>
 </html>
