@@ -142,7 +142,7 @@ function fetchBookshelf() {
 	});
     
         $("#bookshelf-books").html();
-            var booksMustc =' '+'<img class="bookThumb" id="{{id}}" src="{{volumeInfo.imageLinks.smallThumbnail}}"/>' + '<br><h1> Title: {{volumeInfo.title}} </h1>';
+            var booksMustc =' '+'<img class="bookThumb" id="{{id}}" src="{{volumeInfo.imageLinks.smallThumbnail}}"/>' + '<br><h3> Title: {{volumeInfo.title}} </h3>';
             $.getJSON('https://www.googleapis.com/books/v1/users/101017463850449745679/bookshelves/1001/volumes', function (json){
 	        for(i in json.items){
 	            $("#bookshelf-books").append(Mustache.render(booksMustc, json.items[i]));
