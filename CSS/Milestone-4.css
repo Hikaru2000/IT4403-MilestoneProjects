@@ -178,8 +178,9 @@
           font-size: 15px;
      }
 
-     #bookDetails {
-          
+     #details img{
+          width: auto;
+          height: auto;
      }
 
      .book {
