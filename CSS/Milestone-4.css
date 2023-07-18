@@ -220,6 +220,7 @@
      #bookshelf {
           display: inline-block;
           text-align: center;
+          padding-bottom: 40px;
      }
 
      #bookshelf-books {
