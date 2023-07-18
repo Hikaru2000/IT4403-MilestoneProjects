@@ -144,11 +144,18 @@
           color: white;
           border-radius: 4px;
           cursor: pointer;
-          font-size: 15px
+          font-size: 15px;
      }
 
      #grid_View-btn {
-
+          height: 35px;
+          padding: 0 20px;
+          border: none;
+          background-color: #000000;
+          color: white;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 15px;
      }
 
      .container {
