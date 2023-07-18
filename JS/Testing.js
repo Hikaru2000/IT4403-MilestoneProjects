@@ -43,6 +43,18 @@ function searchBooks() {
         $("#pagination").html(paginationHtml);
 
         // Render books
+        $.getJSON(url, function (json) {
+          	$("#results").html()
+              	var booksMustc =' '+'<img class="bookThumb" id="{{id}}" src="{{volumeInfo.imageLinks.smallThumbnail}}"/>';
+              	for(i in json.items){
+                    $("#results").append(Mustache.render(booksMustc, json.items[i]));
+                };
+                $(".bookThumb").click(function(){
+                    showDetails($(this).attr("id"));
+                });
+          });
+
+        /*
         $.each(data.items, function (i, item) {
             var book = item.volumeInfo;
             var bookHtml = "<div class='book'><a href='#' onclick='showDetails(\"" + item.id + "\")'>";
@@ -54,7 +66,7 @@ function searchBooks() {
             bookHtml += "<div class='book-title'>" + book.title + "</div></a></div>";
 
             $("#books").append(bookHtml);
-        });
+        });*/
     });
 }
 
@@ -67,40 +79,13 @@ function changePage(page) {
 function showDetails(bookId) {
     var url = "https://www.googleapis.com/books/v1/volumes/" + bookId;
 
-    $.getJSON(url, function (data) {
-        var book = data.volumeInfo;
-    
-        var detailsHtml = "<h3>" + book.title + "</h3>";
-    
-        if (book.authors) {
-            detailsHtml += "<p><strong>Authors:</strong> " + book.authors.join(", ") + "</p>";
-        }
-    
-        if (book.description) {
-            detailsHtml += "<p><strong>Description:</strong> " + book.description + "</p>";
-        }
-    
-        if (book.categories) {
-            detailsHtml += "<p><strong>Categories:</strong> " + book.categories.join(", ") + "</p>";
-        }
-            
-        if (book.publisher) {
-            detailsHtml += "<p><strong>Publisher:</strong> " + book.publisher + "</p>";
-        }
-    
-        if (book.publishedDate) {
-            detailsHtml += "<p><strong>Published Date:</strong> " + book.publishedDate + "</p>";
-        }
-    
-        if (book.pageCount) {
-          detailsHtml += "<p><strong>Page Count:</strong> " + book.pageCount + "</p>";
-        }
-    
-        if (book.imageLinks && book.imageLinks.thumbnail) {
-            detailsHtml += "<img src='" + book.imageLinks.thumbnail + "' alt='Book Cover'>";
-        }
-    
-        $("#details").html(detailsHtml);
+    var BookinfoTemp= '<img width="200" height="200" src="{{volumeInfo.imageLinks.smallThumbnail}}/>"'+'<br><h1> Title: {{volumeInfo.title}}'+'<br>Subtitle: {{volumeInfo.subtitle}}'+'<br>Authors: {{volumeInfo.authors}}'+'<br></h1><p>Publisher: {{volumeInfo.publisher}}'
+		+'<br>Published date: {{volumeInfo.publishedDate}}'+'<br>Number of pages: {{volumeInfo.pageCount}} '+'<br></p>Description: {{volumeInfo.description}}'+'<br>Categories: {{volumeInfo.categories}}'+'<br>Average rating: {{volumeInfo.averageRating}}'
+		+'<br>Number of reviews: {{volumeInfo.ratingsCount}}'+'<br> Maturity Rating: {{volumeInfo.maturityRating}}'+'<br>Language: {{volumeInfo.language}} '+'<br>Sale Info: {{saleInfo.saleability}}'+'<br></p>';
+      $.getJSON(url, function(json){
+      $("#details").html("");
+      var newInfo=Mustache.render(BookinfoTemp,json);
+      $("#details").html(detailsHtml);
     
         // Hide search results and show book details
         $("#results").hide();
@@ -114,6 +99,9 @@ function showSearchResults() {
     $("#results").show();
 }
 
+
+
+/* Bookshelf JS */
 function fetchBookshelf() {
     var url = apiURL + userId + "/bookshelves/1001/volumes";
 
