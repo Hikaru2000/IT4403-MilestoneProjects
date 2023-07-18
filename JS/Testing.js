@@ -158,9 +158,9 @@ function fetchBookshelf() {
 		+'<br>Published date: {{volumeInfo.publishedDate}}'+'<br>Number of pages: {{volumeInfo.pageCount}} '+'<br></p>Description: "{{volumeInfo.description}}"'+'<br>Categories: {{volumeInfo.categories}}'+'<br>Average rating: {{volumeInfo.averageRating}}'
 		+'<br>Number of reviews: {{volumeInfo.ratingsCount}}'+'<br> Maturity Rating: {{volumeInfo.maturityRating}}'+'<br>Language: {{volumeInfo.language}} '+'<br>Sale Info: {{saleInfo.saleability}}'+'<br></p>';
       		$.getJSON(url, function(json){
-      			$("#info1").html("");
+      			$("#details").html("");
       			var newInfo=Mustache.render(BookinfoTemp,json);
-      			$("#info1").html(newInfo);
+      			$("#details").html(newInfo);
       		});
       	}		
 }
