@@ -91,19 +91,6 @@ function searchBooks() {
                 });
           });
 
-        /*
-        $.each(data.items, function (i, item) {
-            var book = item.volumeInfo;
-            var bookHtml = "<div class='book'><a href='#' onclick='showDetails(\"" + item.id + "\")'>";
-
-            if (book.imageLinks && book.imageLinks.thumbnail) {
-                bookHtml += "<img src='" + book.imageLinks.thumbnail + "' alt='Book Cover'>";
-            }
-
-            bookHtml += "<div class='book-title'>" + book.title + "</div></a></div>";
-
-            $("#books").append(bookHtml);
-        });*/
     });
 }
 
