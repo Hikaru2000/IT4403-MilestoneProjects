@@ -3,6 +3,44 @@ var currentPage = 1;
 var userId = "101017463850449745679";
 var apiURL = "https://www.googleapis.com/books/v1/users/";
 
+/* Main Function */
+$(document).ready(function () {
+    $("#searchbutton").click(function () {
+        searchTerms = $("#searchbox").val();
+        currentPage = 1;
+        searchBooks();
+    });
+
+    $("#backBtn").click(function () {
+        showSearchResults();
+    });
+
+    // Add hover effect to book images
+    $(document).on("mouseenter", ".book img", function () {
+        $(this).css("opacity", "0.7");
+    });
+
+    $(document).on("mouseleave", ".book img", function () {
+        $(this).css("opacity", "1");
+    });
+
+    $("#list_View-btn").click(function () {
+    	$("#books").addClass("list-view");
+	$("#books").removeClass("grid-view");
+	searchBooks();
+    });
+
+    $("#grid_View-btn").click(function () {
+    	$("#books").addClass("grid-view");
+        $("#books").removeClass("list-view");
+        searchBooks();
+    });
+
+    fetchBookshelf();
+});
+/* End Main */
+
+/* Function to Search Books and change pages */
 function searchBooks() {
     var url = "https://www.googleapis.com/books/v1/volumes?q=" + searchTerms + "&startIndex=" + ((currentPage - 1) * 10) + "&maxResults=10";
 
@@ -70,12 +108,14 @@ function searchBooks() {
     });
 }
 
+/* Function to change pagination pages */
 function changePage(page) {
     currentPage = page;
     searchBooks();
 }
 
 
+/* Show Book Details */
 function showDetails(bookId) {
     var url = "https://www.googleapis.com/books/v1/volumes/" + bookId;
 
@@ -93,6 +133,7 @@ function showDetails(bookId) {
     });
 }
 
+/* Show Search Results - Hide Book Details */
 function showSearchResults() {
     // Show search results and hide book details
     $("#bookDetails").hide();
@@ -128,25 +169,4 @@ function fetchBookshelf() {
     });
 }
 
-$(document).ready(function () {
-    $("#searchbutton").click(function () {
-        searchTerms = $("#searchbox").val();
-        currentPage = 1;
-        searchBooks();
-    });
 
-    $("#backBtn").click(function () {
-        showSearchResults();
-    });
-
-    // Add hover effect to book images
-    $(document).on("mouseenter", ".book img", function () {
-        $(this).css("opacity", "0.7");
-    });
-
-    $(document).on("mouseleave", ".book img", function () {
-        $(this).css("opacity", "1");
-    });
-
-    fetchBookshelf();
-});
