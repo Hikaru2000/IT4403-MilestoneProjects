@@ -78,12 +78,6 @@ function searchBooks() {
         if (endPage !== totalPages) {
           paginationHtml += "<a href='#' onclick='changePage(" + (endPage + 1) + ")'>Next</a>";
         }
-
-	$("#pagination").on('click',function (event) {
-	 	var x = event.target.textContent;
-	 	var pages= document.getElementsByClassName("pagination");
-	 	/*var url=service_point+$("#search_bar").val()+"&startIndex="+(x-1)*10;*/
-	 	searchBooks(url);
 	    
         paginationHtml += "</div>";
         $("#pagination").html(paginationHtml);
