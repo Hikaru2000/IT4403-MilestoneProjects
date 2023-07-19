@@ -26,12 +26,12 @@ $(document).ready(function () {
 
 	$(function(){
 		$("#grid_View-btn").click(function(){
-			$("#.books").css("width","34%");
+			$(".books").css("width","34%");
 		        $("#results").attr("data-layout","Grid");
 	    	});
 	   	$("#list_View-btn").click(function(){
 		        $(".book").css("width","99%");
-			$("#.book").css("float","left");
+			$(".book").css("float","left");
 		        $("#results").attr("data-layout","List");
 	    	});
 	});
