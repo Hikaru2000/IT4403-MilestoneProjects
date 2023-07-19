@@ -100,7 +100,7 @@ function searchBooks() {
                 });
           });
 
-    });
+    };
 }
 
 /* Function to change pagination pages */
