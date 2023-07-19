@@ -30,8 +30,8 @@ $(document).ready(function () {
 		        $("#results").attr("data-layout","Grid");
 	    	});
 	   	$("#list_View-btn").click(function(){
-		        $("#searchResults").css("width","99%");
-		        $("#searchResults").attr("data-layout","List");
+		        $("#results").css("width","99%");
+		        $("#results").attr("data-layout","List");
 	    	});
 	});
 
