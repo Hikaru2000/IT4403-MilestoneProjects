@@ -16,22 +16,23 @@ $(document).ready(function () {
     });
 
     // Add hover effect to book images
-    $(document).on("mouseenter", ".book img", function () {
+    $(document).on("mouseenter", ".books img", function () {
         $(this).css("opacity", "0.7");
     });
 
-    $(document).on("mouseleave", ".book img", function () {
+    $(document).on("mouseleave", ".books img", function () {
         $(this).css("opacity", "1");
     });
 
 	$(function(){
 		$("#grid_View-btn").click(function(){
-			$("#results").css("width","34%");
+			$(".book").css("box-sizing","border-box");
 		        $("#results").attr("data-layout","Grid");
 	    	});
 	   	$("#list_View-btn").click(function(){
-		        $("#searchResults").css("width","99%");
-		        $("#searchResults").attr("data-layout","List");
+		        $(".book").css("width","99%");
+			$(".book").css("float","left");
+		        $("#results").attr("data-layout","List");
 	    	});
 	});
 
@@ -76,13 +77,21 @@ function searchBooks() {
         if (endPage !== totalPages) {
           paginationHtml += "<a href='#' onclick='changePage(" + (endPage + 1) + ")'>Next</a>";
         }
+
+	/*$("#pagination").on('click',function (event) {
+	 	var x = event.target.textContent;
+	 	var pages= document.getElementsByIdName("pagination");
+	 	var url=service_point+$("#search_bar").val()+"&startIndex="+(x-1)*10;
+	 	searchBooks(url);*/
+	    
         paginationHtml += "</div>";
         $("#pagination").html(paginationHtml);
+	});
 
         // Render books
         $.getJSON(url, function (json) {
           	$("#results").html()
-              	var booksMustc =' '+'<img class="bookThumb" id="{{id}}" src="{{volumeInfo.imageLinks.smallThumbnail}}"/>';
+              	var booksMustc =' '+'<div class="book"><img class="bookThumb" id="{{id}}" src="{{volumeInfo.imageLinks.smallThumbnail}}"/>' + '<br><h3>{{volumeInfo.title}}</h3></div>';
               	for(i in json.items){
                     $("#results").append(Mustache.render(booksMustc, json.items[i]));
                 };
