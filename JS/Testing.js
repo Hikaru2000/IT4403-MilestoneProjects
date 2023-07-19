@@ -79,6 +79,13 @@ function searchBooks() {
         paginationHtml += "</div>";
         $("#pagination").html(paginationHtml);
 
+	$("#pagination").on('click',function (event) {
+	 	var x = event.target.textContent;
+	 	var pages= document.getElementsByClassName("page");
+	 	/*var url=service_point+$("#search_bar").val()+"&startIndex="+(x-1)*10;*/
+	 	bookSearch(url);
+	});
+
         // Render books
         $.getJSON(url, function (json) {
           	$("#results").html()
