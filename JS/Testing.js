@@ -26,7 +26,7 @@ $(document).ready(function () {
 
 	$(function(){
 		$("#grid_View-btn").click(function(){
-			$(".books").css("width","34%");
+			$(".book").css("box-sizing","border-box");
 		        $("#results").attr("data-layout","Grid");
 	    	});
 	   	$("#list_View-btn").click(function(){
