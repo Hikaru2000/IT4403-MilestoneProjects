@@ -16,11 +16,11 @@ $(document).ready(function () {
     });
 
     // Add hover effect to book images
-    $(document).on("mouseenter", ".book img", function () {
+    $(document).on("mouseenter", ".books img", function () {
         $(this).css("opacity", "0.7");
     });
 
-    $(document).on("mouseleave", ".book img", function () {
+    $(document).on("mouseleave", ".books img", function () {
         $(this).css("opacity", "1");
     });
 
@@ -82,7 +82,7 @@ function searchBooks() {
         // Render books
         $.getJSON(url, function (json) {
           	$("#results").html()
-              	var booksMustc =' '+'<img class="bookThumb" id="{{id}}" src="{{volumeInfo.imageLinks.smallThumbnail}}"/>';
+              	var booksMustc =' '+'<div class="book"><img class="bookThumb" id="{{id}}" src="{{volumeInfo.imageLinks.smallThumbnail}}"/>' + '<br><h3>{{volumeInfo.title}}</h3></div>';
               	for(i in json.items){
                     $("#results").append(Mustache.render(booksMustc, json.items[i]));
                 };
