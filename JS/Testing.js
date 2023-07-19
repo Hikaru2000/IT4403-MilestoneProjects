@@ -26,13 +26,13 @@ $(document).ready(function () {
 
 	$(function(){
 		$("#grid_View-btn").click(function(){
-			$("#results.books").css("width","34%");
-		        $("#results.books").attr("data-layout","Grid");
+			$("#.books").css("width","34%");
+		        $("#results").attr("data-layout","Grid");
 	    	});
 	   	$("#list_View-btn").click(function(){
-		        $("#results.books").css("width","99%");
-			$("#results.books").css("float","left");
-		        $("#results.books").attr("data-layout","List");
+		        $(".book").css("width","99%");
+			$("#.book").css("float","left");
+		        $("#results").attr("data-layout","List");
 	    	});
 	});
 
