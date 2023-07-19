@@ -84,7 +84,7 @@ function searchBooks() {
 	 	var x = event.target.textContent;
 	 	var pages= document.getElementsByClassName("page");
 	 	/*var url=service_point+$("#search_bar").val()+"&startIndex="+(x-1)*10;*/
-	 	bookSearch(url);
+	 	searchBooks(url);
 	});
 
         // Render books
