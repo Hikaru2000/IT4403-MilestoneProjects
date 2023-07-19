@@ -31,7 +31,6 @@ $(document).ready(function () {
 	    	});
 	   	$("#list_View-btn").click(function(){
 		        $(".book").css("width","99%");
-			$(".book").css("display","block");
 			$(".book").css("float","left");
 		        $("#results").attr("data-layout","List");
 	    	});
@@ -78,6 +77,12 @@ function searchBooks() {
         if (endPage !== totalPages) {
           paginationHtml += "<a href='#' onclick='changePage(" + (endPage + 1) + ")'>Next</a>";
         }
+
+	$("#pagination").on('click',function (event) {
+	 	var x = event.target.textContent;
+	 	var pages= document.getElementsByIdName("pagination");
+	 	/*var url=service_point+$("#search_bar").val()+"&startIndex="+(x-1)*10;*/
+	 	searchBooks(url);
 	    
         paginationHtml += "</div>";
         $("#pagination").html(paginationHtml);
@@ -177,5 +182,3 @@ function fetchBookshelf() {
         	$(this).css("opacity", "1");
     	});
 }
-
-
