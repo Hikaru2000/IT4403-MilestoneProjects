@@ -31,6 +31,7 @@ $(document).ready(function () {
 	    	});
 	   	$("#list_View-btn").click(function(){
 		        $("#results.books").css("width","99%");
+			$("#results.books").css("float","left");
 		        $("#results.books").attr("data-layout","List");
 	    	});
 	});
