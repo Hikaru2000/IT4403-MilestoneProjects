@@ -82,7 +82,7 @@ function searchBooks() {
 
 	$("#pagination").on('click',function (event) {
 	 	var x = event.target.textContent;
-	 	var pages= document.getElementsByClassName("page");
+	 	var pages= document.getElementsByIdName("pagination");
 	 	/*var url=service_point+$("#search_bar").val()+"&startIndex="+(x-1)*10;*/
 	 	searchBooks(url);
 	});
