@@ -31,6 +31,7 @@ $(document).ready(function () {
 	    	});
 	   	$("#list_View-btn").click(function(){
 		        $(".book").css("width","99%");
+			$(".book").css("display","block");
 			$(".book").css("float","left");
 		        $("#results").attr("data-layout","List");
 	    	});
@@ -80,7 +81,7 @@ function searchBooks() {
 
 	$("#pagination").on('click',function (event) {
 	 	var x = event.target.textContent;
-	 	var pages= document.getElementsByIdName("pagination");
+	 	var pages= document.getElementsByClassName("pagination");
 	 	/*var url=service_point+$("#search_bar").val()+"&startIndex="+(x-1)*10;*/
 	 	searchBooks(url);
 	    
